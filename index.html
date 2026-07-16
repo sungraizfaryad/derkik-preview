@@ -1,0 +1,5381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, noarchive, nofollow, nosnippet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derkik and the Island of Red Gold</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cause:wght@100..900&family=Henny+Penny&family=Kablammo&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #999;
+      font-family: Georgia, serif;
+    }
+
+    .page {
+      width: 8.5in;
+      height: 11in;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      page-break-after: always;
+    }
+
+    /* page 1: cover */
+    .page-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* story pages: text-bg + scene image */
+    .page-story {
+      position: relative;
+    }
+
+    .col-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 36%;
+      z-index: 2;
+    }
+
+    /* paper-bg overscans top/left/bottom by 70px so the torn-edge filter's
+       wobble only ever shows on the right (torn) side; the other three
+       sides get cropped clean by .page's overflow: hidden. The filter
+       lives here, NOT on .col-left, so the text-overlay never gets warped. */
+    .paper-bg {
+      position: absolute;
+      top: -70px;
+      left: -70px;
+      bottom: -70px;
+      width: calc(100% + 70px);
+      background-image: url("Gpt-images/cover-bg.png");
+      background-size: cover;
+      background-position: center;
+      filter: url(#torn-edge) drop-shadow(2px 0 6px rgba(0, 0, 0, 0.35));
+    }
+
+    .text-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0.4in 0.2in;
+    }
+
+    .henny-penny-regular {
+      font-family: "Henny Penny", system-ui;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .chapter-label {
+      letter-spacing: 0.15em;
+      margin-bottom: 0.15in;
+    }
+
+    .chapter-title {
+      font-family: 'Kablammo', cursive;
+      font-size: 3em;
+      margin-bottom: 0.3in;
+      text-align: center;
+    }
+
+    .text-overlay p {
+      font-family: 'Cause', sans-serif;
+      margin-bottom: 0.15in;
+      line-height: 1.5;
+      font-size: 1.5em;
+    }
+
+    /* left edge extends further under .col-left than the visible split so the
+       torn notches reveal this image, not the page's white background */
+    .col-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: calc(64% + 60px);
+      z-index: 1;
+    }
+
+    .col-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .page-number {
+      position: absolute;
+      bottom: 0.3in;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 62px;
+      height: 62px;
+      z-index: 3;
+    }
+
+    .page-number svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+    }
+
+    .page-number span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Cause', sans-serif;
+      font-weight: 700;
+      font-size: 1.4em;
+      color: #6b3f1d;
+    }
+
+    @media print {
+      body {
+        background: none;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+      }
+
+      @page {
+        size: 8.5in 11in;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <svg width="0" height="0" style="position: absolute">
+    <defs>
+      <filter id="torn-edge" x="-30%" y="-30%" width="160%" height="160%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.008 0.03" numOctaves="3" seed="7" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="45" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <symbol id="page-badge" viewBox="0 0 100 100">
+        <polygon fill="#ffb703" stroke="#fff" stroke-width="2" points="50.0,2.0 59.8,13.3 74.0,8.4 76.9,23.1 91.6,26.0 86.7,40.2 98.0,50.0 86.7,59.8 91.6,74.0 76.9,76.9 74.0,91.6 59.8,86.7 50.0,98.0 40.2,86.7 26.0,91.6 23.1,76.9 8.4,74.0 13.3,59.8 2.0,50.0 13.3,40.2 8.4,26.0 23.1,23.1 26.0,8.4 40.2,13.3" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <header>
+
+  </header>
+
+  <div class="page page-cover">
+    <img src="Gpt-images/cover.png" alt="Cover">
+  </div>
+
+  <!-- Page 1 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER ONE</h2>
+        <h1 class="chapter-title">The Little Boat</h1>
+        <p>Some islands cannot be found on any map.</p>
+        <p>They only appear when adventure is looking for you.</p>
+        <p>Danno believed that before he had ever seen one.</p>
+        <p>Joeby did not.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="outputs/pages/approved/chapter-01-page-01-v003.jpg" alt="Danno and Joeby standing barefoot on the old jetty at dawn, looking out across the misty harbour to the glowing horizon" style="object-position: 50% 50%">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby believed in toast, dry socks, and not being eaten by anything with teeth. Unfortunately, he also believed in his older brother, which was how most of his problems began.</p>
+        <p>“Slow down!” Joeby puffed, chasing Danno across the empty beach.</p>
+        <p>“You’re six,” Danno called back. “You’re supposed to be fast.”</p>
+        <p>“I’m nearly seven!”</p>
+        <p>“That’s worse. You should be faster.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="outputs/pages/approved/chapter-01-illustration-01-v005.jpg" alt="Danno and Joeby running beneath the old jetty at dawn" style="object-position: 50% 50%">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>2</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The tide had slipped away from Blackwater Cove, leaving the old jetty standing on crooked legs above wet sand and black pools. Fishing boats rocked lazily in the harbour. Gulls argued on the rooftops. The village still slept.</p>
+        <p>Danno stopped beneath the jetty.</p>
+        <p>Joeby bent over, hands on knees.</p>
+        <p>“If this is about crabs again,” he said, “I’m going home.”</p>
+        <p>Danno grinned.</p>
+        <p>“It’s not crabs.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>3</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“That’s what you said last time.”</p>
+        <p>“Look.”</p>
+        <p>Behind a curtain of seaweed and rotten rope, something blue was wedged beneath the wooden beams.</p>
+        <p>Joeby crouched.</p>
+        <p>“Is that...a boat?”</p>
+        <p>Danno pulled away more seaweed.</p>
+        <p>A little blue dinghy lay half-buried in sand. Its paint was cracked. One side had split. Barnacles clung to it like old teeth.</p>
+        <p>“It’s perfect,” Danno whispered.</p>
+        <p>Joeby stared at him.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“It’s broken.”</p>
+        <p>“Exactly.”</p>
+        <p>“How is that perfect?”</p>
+        <p>“Because nobody will miss it.”</p>
+        <p>Joeby took one step backwards.</p>
+        <p>“No.”</p>
+        <p>“Yes.”</p>
+        <p>“No, Danno.”</p>
+        <p>“We could fix her.”</p>
+        <p>“We?”</p>
+        <p>“You’re my assistant.”</p>
+        <p>“I never agreed to that.”</p>
+        <p>“You came.”</p>
+        <p>“That’s not agreement. That’s being tricked.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>5</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 6 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno laughed and ran his hand along the boat’s faded side. Something about it made his chest tighten. The dinghy looked forgotten, but not dead. Not quite.</p>
+        <p>Joeby peered around the jetty.</p>
+        <p>“Mum said we had to be back before lunch.”</p>
+        <p>“We will be.”</p>
+        <p>“You said that when we climbed the lighthouse.”</p>
+        <p>“We were nearly back before lunch.”</p>
+        <p>“We were back before tea.”</p>
+        <p>“That’s still before something.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>6</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 7 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby tried not to smile.</p>
+        <p>Danno grabbed a loose rope tied to the bow.</p>
+        <p>“Help me pull.”</p>
+        <p>“No.”</p>
+        <p>“Fine. I’ll tell everyone you were scared of a boat.”</p>
+        <p>Joeby’s face hardened.</p>
+        <p>“I am not scared of boats.”</p>
+        <p>“You’re scared of seaweed.”</p>
+        <p>“Seaweed grabs ankles.”</p>
+        <p>“It does not.”</p>
+        <p>“You don’t know what it does when you’re not looking.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>7</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 8 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno laughed so loudly a gull flew from the jetty roof.</p>
+        <p>Together they pulled.</p>
+        <p>At first the boat didn’t move. Then, with a scrape that sounded much too loud in the quiet morning, it slid free.</p>
+        <p>Both boys froze.</p>
+        <p>No windows opened.</p>
+        <p>No fishermen shouted.</p>
+        <p>No mother appeared at the top of the beach with folded arms and that look.</p>
+        <p>Joeby breathed again.</p>
+        <p>“We should put it back.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>8</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 9 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno looked at the boat.</p>
+        <p>Then the sea.</p>
+        <p>Then the horizon.</p>
+        <p>“What if we sailed to Pirate Rock?”</p>
+        <p>Joeby stared.</p>
+        <p>“That’s past the harbour.”</p>
+        <p>“Only a little.”</p>
+        <p>“It’s past where we’re allowed.”</p>
+        <p>“That’s why it’s called adventure.”</p>
+        <p>“No, that’s why it’s called trouble.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>9</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 10 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno crouched beside the dinghy, already inspecting the split wood.</p>
+        <p>“She needs patching. New rope. Oars.”</p>
+        <p>“We haven’t got oars.”</p>
+        <p>“We can make some.”</p>
+        <p>“We can’t make oars.”</p>
+        <p>“We can try.”</p>
+        <p>Joeby sighed the long, tired sigh of someone who knew his future had just been ruined.</p>
+        <p>Danno looked up.</p>
+        <p>“You don’t have to come.”</p>
+        <p>That was unfair.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 11 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno knew it was unfair.</p>
+        <p>Joeby looked at the water shining beneath the morning sun. He looked at the little blue boat. Then he looked at his brother.</p>
+        <p>Someone had to keep Danno alive.</p>
+        <p>“I’m coming,” he said. “But if we die, I’m telling Mum it was your fault.”</p>
+        <p>Danno grinned.</p>
+        <p>“If we die, you won’t be able to.”</p>
+        <p>“I’ll find a way.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>11</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 12 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>All that day, they worked beneath the jetty in secret. Danno scraped barnacles with a flat stone. Joeby passed him the wrong bits of wood, dropped nails in the sand, and once got his sleeve stuck in tar.</p>
+        <p>“Hold it still,” Danno said.</p>
+        <p>“I am!”</p>
+        <p>“You’re wobbling it.”</p>
+        <p>“I’m not wobbling it.”</p>
+        <p>The boat wobbled.</p>
+        <p>Danno laughed.</p>
+        <p>“You’re the worst shipbuilder in Wales.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>12</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 13 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby picked something from the sand.</p>
+        <p>“I’m the best shell finder though.”</p>
+        <p>He held up a small striped shell, white and gold and smooth as glass.</p>
+        <p>Danno glanced over.</p>
+        <p>“Nice.”</p>
+        <p>“Can I keep it?”</p>
+        <p>“It’s a shell. You don’t need permission.”</p>
+        <p>Joeby slipped it carefully into his pocket.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>13</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 14 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>By sunset, the dinghy looked less dead. Not good. Not safe, exactly. But ready enough for two boys who didn’t understand boats and didn’t want to.</p>
+        <p>Danno stood back, proud.</p>
+        <p>“Tomorrow,” he said, “we launch her.”</p>
+        <p>Joeby’s mouth opened.</p>
+        <p>“Tomorrow?”</p>
+        <p>Danno nodded.</p>
+        <p>“Early.”</p>
+        <p>“Without telling Mum?”</p>
+        <p>Danno smiled.</p>
+        <p>“Especially without telling Mum.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>14</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 15 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Above them, the tide turned.</p>
+        <p>Out beyond the harbour wall, where the sea darkened towards the horizon, something moved beneath the water.</p>
+        <p>Not a fish.</p>
+        <p>Not a wave.</p>
+        <p>A current.</p>
+        <p>Silent.</p>
+        <p>Waiting.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>15</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 16 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER TWO</h2>
+        <h1 class="chapter-title">The Launch</h1>
+        <p>Danno woke before the gulls.</p>
+        <p>He was dressed before the kettle boiled downstairs, out of the house before the first floorboard creaked, and halfway to the beach before he realised Joeby was behind him.</p>
+        <p>“You’re loud,” Danno whispered.</p>
+        <p>“I’m breathing.”</p>
+        <p>“Breathe quieter.”</p>
+        <p>“I’m carrying bread.”</p>
+        <p>Danno stopped.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>16</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 17 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“You brought food?”</p>
+        <p>Joeby pulled half a loaf from under his jumper.</p>
+        <p>“And apples.”</p>
+        <p>Danno blinked.</p>
+        <p>“That’s actually useful.”</p>
+        <p>“I’m not useless.”</p>
+        <p>“I never said you were useless.”</p>
+        <p>“You called me the worst shipbuilder in Wales.”</p>
+        <p>“That was yesterday.”</p>
+        <p>Joeby sniffed.</p>
+        <p>“I’ve improved.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>17</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 18 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The beach lay silver in the early light. The old jetty stretched into the water like a crooked finger. Beneath it, the little blue boat waited.</p>
+        <p>Danno’s heart thumped.</p>
+        <p>It suddenly looked smaller than it had yesterday.</p>
+        <p>Joeby noticed.</p>
+        <p>“It’s very little.”</p>
+        <p>“It’s big enough.”</p>
+        <p>“For what?”</p>
+        <p>“For us.”</p>
+        <p>“That’s not the same thing.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>18</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 19 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>They dragged the boat to the edge of the tide. It scraped over the sand, leaving a crooked trail behind them.</p>
+        <p>“Quiet!” Danno whispered.</p>
+        <p>“You’re the one scraping a boat across the beach.”</p>
+        <p>“Push.”</p>
+        <p>“I am pushing.”</p>
+        <p>“You’re leaning.”</p>
+        <p>“I’m thoughtfully pushing.”</p>
+        <p>A small wave curled around their ankles.</p>
+        <p>The dinghy lifted.</p>
+        <p>Joeby gasped.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>19</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 20 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“It’s floating.”</p>
+        <p>Danno tried not to look surprised.</p>
+        <p>“I told you it would.”</p>
+        <p>“You didn’t know.”</p>
+        <p>“I strongly suspected.”</p>
+        <p>“That means guessed.”</p>
+        <p>Danno climbed in first. The boat rocked so sharply he nearly fell out the other side.</p>
+        <p>Joeby pointed.</p>
+        <p>“That was not captain-like.”</p>
+        <p>“Get in.”</p>
+        <p>Joeby hesitated.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>20</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 21 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Behind them, Blackwater Cove was beginning to wake. Smoke rose from chimneys. A dog barked somewhere near the harbour. The church bell rang once.</p>
+        <p>“We can still go home,” Joeby said.</p>
+        <p>Danno looked at the village.</p>
+        <p>Then at the water beyond the harbour wall.</p>
+        <p>“We could.”</p>
+        <p>Joeby waited.</p>
+        <p>Danno smiled.</p>
+        <p>“Or we could see Pirate Rock.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>21</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 22 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>A wave nudged the dinghy away from the sand.</p>
+        <p>Joeby grabbed the side.</p>
+        <p>“Danno.”</p>
+        <p>“What?”</p>
+        <p>“It’s leaving.”</p>
+        <p>“Then get in.”</p>
+        <p>Joeby jumped.</p>
+        <p>The boat dipped, spun, and drifted backwards.</p>
+        <p>Both boys froze.</p>
+        <p>Then Joeby burst out laughing.</p>
+        <p>“We’re sailing!”</p>
+        <p>“We’re drifting.”</p>
+        <p>“That still counts.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>22</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 23 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno grabbed an oar and pushed against the sand until the boat turned towards open water.</p>
+        <p>They passed the harbour wall just as the sun rose properly.</p>
+        <p>For a while, everything was perfect.</p>
+        <p>The sea sparkled.</p>
+        <p>The village shrank behind them.</p>
+        <p>Joeby ate an apple and declared himself first mate.</p>
+        <p>Danno said first mates didn’t eat all the breakfast.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>23</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 24 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby said captains didn’t nearly fall overboard before leaving shore.</p>
+        <p>They argued happily until the cliffs of Blackwater Cove softened behind morning mist.</p>
+        <p>Then the wind stopped.</p>
+        <p>It did not fade.</p>
+        <p>It stopped.</p>
+        <p>The little sail they had tied from an old sheet hung limp against the mast.</p>
+        <p>Danno dipped an oar into the sea.</p>
+        <p>The water felt heavy.</p>
+        <p>He pulled.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>24</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 25 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The boat did not turn.</p>
+        <p>He pulled harder.</p>
+        <p>Still nothing.</p>
+        <p>Joeby leaned over the side.</p>
+        <p>“Are we stuck?”</p>
+        <p>“In the sea?”</p>
+        <p>“Could happen.”</p>
+        <p>“No.”</p>
+        <p>The dinghy drifted sideways.</p>
+        <p>Not towards Pirate Rock.</p>
+        <p>Not towards home.</p>
+        <p>Out.</p>
+        <p>Joeby looked back.</p>
+        <p>The harbour wall was smaller than before.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>25</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 26 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“Danno?”</p>
+        <p>“I know.”</p>
+        <p>“Are you rowing?”</p>
+        <p>“No.”</p>
+        <p>“Is the wind blowing?”</p>
+        <p>“No.”</p>
+        <p>“Then why are we moving?”</p>
+        <p>Danno had no answer.</p>
+        <p>The water around them had changed colour. It was darker now, deep blue streaked with silver, as though moonlight lay beneath the surface even in daylight.</p>
+        <p>The compass in Danno’s pocket began to twitch.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>26</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 27 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>He pulled it out.</p>
+        <p>The needle spun.</p>
+        <p>Once.</p>
+        <p>Twice.</p>
+        <p>Faster.</p>
+        <p>Joeby stared.</p>
+        <p>“It’s broken.”</p>
+        <p>“It wasn’t.”</p>
+        <p>“Maybe the sea broke it.”</p>
+        <p>Danno snapped it shut, suddenly annoyed by the sound of the little needle ticking against the glass.</p>
+        <p>Hours passed.</p>
+        <p>The sun climbed.</p>
+        <p>The bread became dry in Joeby’s mouth.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>27</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 28 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The village disappeared completely.</p>
+        <p>At first they joked about it.</p>
+        <p>Then they didn’t.</p>
+        <p>By afternoon, the sea was everywhere.</p>
+        <p>No gulls.</p>
+        <p>No boats.</p>
+        <p>No land.</p>
+        <p>Just blue water and sky.</p>
+        <p>Joeby hugged his knees.</p>
+        <p>“Mum’s going to be furious.”</p>
+        <p>Danno stared at the horizon.</p>
+        <p>“She has to find us first.”</p>
+        <p>That was meant to be funny.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>28</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 29 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>It wasn’t.</p>
+        <p>The mist came just before evening.</p>
+        <p>It rolled across the water in pale folds, swallowing the sun, the sea, and finally the boat itself.</p>
+        <p>Joeby whispered, “I don’t like this.”</p>
+        <p>Danno sat beside him.</p>
+        <p>“Me neither.”</p>
+        <p>That frightened Joeby more than anything.</p>
+        <p>Then the boat struck something.</p>
+        <p>Not hard.</p>
+        <p>Just a soft crunch.</p>
+        <p>Sand.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>29</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 30 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Both boys looked up.</p>
+        <p>The mist thinned.</p>
+        <p>A beach stretched before them.</p>
+        <p>White sand.</p>
+        <p>Black rocks.</p>
+        <p>Jungle rising behind it like a green wall.</p>
+        <p>Waterfalls flashed in the cliffs above.</p>
+        <p>Birds called from trees neither boy recognised.</p>
+        <p>Joeby swallowed.</p>
+        <p>“Danno?”</p>
+        <p>“Yeah?”</p>
+        <p>“I don’t think this is Pirate Rock.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>30</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 31 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The little blue boat slid gently onto the shore of an island that had not been there a moment before.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>31</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 32 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER THREE</h2>
+        <h1 class="chapter-title">The Island That Wasn’t There</h1>
+        <p>For a while, neither boy moved.</p>
+        <p>The boat rested in shallow water. Tiny waves tapped its side. The beach ahead was empty, but not ordinary-empty. Not like Blackwater Cove before breakfast.</p>
+        <p>This was waiting-empty.</p>
+        <p>Joeby whispered, “Are we dead?”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>32</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 33 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno stepped into the water.</p>
+        <p>“No.”</p>
+        <p>“You checked quickly.”</p>
+        <p>“Dead people don’t have wet socks.”</p>
+        <p>Joeby looked down at his own feet.</p>
+        <p>“That’s true.”</p>
+        <p>He climbed out, nearly slipped, grabbed the boat and pretended he had meant to do it.</p>
+        <p>The air was warm and heavy with flowers. The jungle breathed strange green smells across the beach. Something bright red flashed between trees and vanished.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>33</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 34 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby reached for Danno’s sleeve.</p>
+        <p>“What was that?”</p>
+        <p>“A bird.”</p>
+        <p>“Birds are not that big.”</p>
+        <p>“Big bird.”</p>
+        <p>“That is not comforting.”</p>
+        <p>Danno pulled the boat above the tide line. Joeby helped, though mostly by complaining.</p>
+        <p>“My arms are broken.”</p>
+        <p>“They’re not.”</p>
+        <p>“They feel broken.”</p>
+        <p>“That’s because they’ve done work.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>34</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 35 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>They tipped the dinghy on its side beneath a leaning rock. It made a poor shelter, but it was shade. Shade mattered. Thirst mattered more.</p>
+        <p>Joeby licked cracked lips.</p>
+        <p>“I’m hungry.”</p>
+        <p>“Water first,” Danno said.</p>
+        <p>“I’m also thirsty.”</p>
+        <p>“Then definitely water first.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>35</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 36 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>They followed the sound of trickling through ferns taller than Joeby. The jungle closed behind them quickly. Too quickly. After ten steps the beach had vanished.</p>
+        <p>Joeby stopped.</p>
+        <p>“We should leave marks.”</p>
+        <p>Danno looked back.</p>
+        <p>“That’s actually clever.”</p>
+        <p>“I have moments.”</p>
+        <p>They broke twigs and scratched arrows into soft bark until they found the stream.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>36</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 37 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>It ran clear over black stones, cold enough to make their teeth hurt. They drank until their stomachs ached.</p>
+        <p>Joeby splashed water over his face.</p>
+        <p>“Best drink ever.”</p>
+        <p>“You say that about orange squash.”</p>
+        <p>“This is better island squash.”</p>
+        <p>Danno filled an old tin they had found in the boat.</p>
+        <p>Then he noticed the mud beside the stream.</p>
+        <p>Footprints.</p>
+        <p>Small.</p>
+        <p>Bare.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>37</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 38 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Not theirs.</p>
+        <p>He crouched.</p>
+        <p>Joeby leaned over his shoulder.</p>
+        <p>“Are those ours?”</p>
+        <p>“Your feet aren’t that small.”</p>
+        <p>“They used to be.”</p>
+        <p>“Not this morning.”</p>
+        <p>The footprints led away through the trees.</p>
+        <p>Joeby went very still.</p>
+        <p>“There’s someone here.”</p>
+        <p>Danno tightened his hand around the long branch he had picked up.</p>
+        <p>“Maybe.”</p>
+        <p>“Maybe?”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>38</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 39 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“Could be old.”</p>
+        <p>The wet mud glistened.</p>
+        <p>A drop of water slid into one print and filled the heel.</p>
+        <p>Joeby’s voice shrank.</p>
+        <p>“That doesn’t look old.”</p>
+        <p>A twig snapped somewhere in the jungle.</p>
+        <p>Both boys spun.</p>
+        <p>Nothing moved.</p>
+        <p>The trees stood thick and silent.</p>
+        <p>Too silent.</p>
+        <p>Danno lifted the branch.</p>
+        <p>“We’re going back to the beach.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>39</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 40 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“For once,” Joeby whispered, “excellent plan.”</p>
+        <p>They moved quickly.</p>
+        <p>Not running.</p>
+        <p>Running would admit fear.</p>
+        <p>But not slowly either.</p>
+        <p>Back at the shelter, Danno sharpened the branch against a flat stone until it became a rough spear. Joeby watched, then chose a shorter piece of wood and began hacking at it with a shell.</p>
+        <p>“What are you doing?”</p>
+        <p>“Making a sword.”</p>
+        <p>“That’s a stick.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>40</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 41 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“It’s a sword-stick.”</p>
+        <p>“You can’t fight anything with that.”</p>
+        <p>Joeby tied it around his waist with a vine.</p>
+        <p>“I look dangerous.”</p>
+        <p>“You look like a tree fell over and gave up.”</p>
+        <p>Joeby drew the wooden sword with great seriousness.</p>
+        <p>“Say that when I save your life.”</p>
+        <p>Danno laughed.</p>
+        <p>It felt good to laugh.</p>
+        <p>It didn’t last.</p>
+        <p>Night came fast on the island.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>41</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 42 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>One moment the sky was gold.</p>
+        <p>The next, shadows poured from the jungle and swallowed the beach.</p>
+        <p>They made a small fire from dry grass and driftwood. Danno caught one tiny silver fish with his spear after missing six times. Joeby tried to catch one with his sword and soaked himself to the waist.</p>
+        <p>“That fish was scared,” he insisted.</p>
+        <p>“It escaped before you touched the water.”</p>
+        <p>“It sensed danger.”</p>
+        <p>“It sensed stupidity.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>42</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 43 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>They shared the fish in two bites each.</p>
+        <p>Joeby lay beneath the upturned boat, his shell clutched in one hand and his wooden sword under the other arm.</p>
+        <p>“Danno?”</p>
+        <p>“What?”</p>
+        <p>“If Mum finds us, are we grounded forever?”</p>
+        <p>Danno stared into the fire.</p>
+        <p>“Probably.”</p>
+        <p>“Good,” Joeby murmured. “That means she finds us.”</p>
+        <p>Danno said nothing.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>43</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 44 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The jungle began making noises after dark.</p>
+        <p>Whistles.</p>
+        <p>Clicks.</p>
+        <p>Long rustles that moved from tree to tree.</p>
+        <p>Once, something screamed so suddenly Joeby sat bolt upright and hit his head on the boat.</p>
+        <p>“What was that?”</p>
+        <p>“Bird,” Danno said.</p>
+        <p>“At night?”</p>
+        <p>“Night bird.”</p>
+        <p>“That was not a bird.”</p>
+        <p>“Then don’t ask.”</p>
+        <p>Joeby shuffled closer.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>44</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 45 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno stayed awake long after his brother slept. The spear rested across his knees. The fire sank into red embers.</p>
+        <p>Near midnight, the whistling started.</p>
+        <p>Not birds.</p>
+        <p>Not wind.</p>
+        <p>Three soft notes from the trees.</p>
+        <p>Danno held his breath.</p>
+        <p>The whistle came again.</p>
+        <p>Closer.</p>
+        <p>He stood slowly.</p>
+        <p>“Who’s there?”</p>
+        <p>Silence.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>45</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 46 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Then, at the edge of the firelight, two eyes blinked.</p>
+        <p>Small.</p>
+        <p>Bright.</p>
+        <p>Watching.</p>
+        <p>Danno gripped the spear.</p>
+        <p>The eyes vanished.</p>
+        <p>Morning arrived pale and damp.</p>
+        <p>Joeby woke first.</p>
+        <p>He yawned, crawled from beneath the boat, then froze.</p>
+        <p>“Danno.”</p>
+        <p>Danno sat up.</p>
+        <p>“What?”</p>
+        <p>Joeby pointed.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>46</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 47 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>In the sand beside the dead fire were footprints.</p>
+        <p>Small, bare footprints.</p>
+        <p>They circled the camp once.</p>
+        <p>Then disappeared into the jungle.</p>
+        <p>Joeby looked at his brother.</p>
+        <p>Danno looked at the trees.</p>
+        <p>From somewhere deep inside the island came a sound like laughter.</p>
+        <p>Not human.</p>
+        <p>Not quite animal.</p>
+        <p>Then the jungle fell silent again.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>47</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 48 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby drew his wooden sword.</p>
+        <p>“I don’t like this island.”</p>
+        <p>Danno picked up his spear.</p>
+        <p>He tried to smile.</p>
+        <p>But this time, even he couldn’t.</p>
+        <p>Neither boy noticed the girl watching from high in the branches.</p>
+        <p>Or the monkey beside her, smiling straight at them.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>48</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 49 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER FOUR</h2>
+        <h1 class="chapter-title">The Hunt</h1>
+        <p>Morning made the island look innocent again.</p>
+        <p>That annoyed Joeby.</p>
+        <p>Nothing that had whistled in the dark, left footprints beside your fire, and watched you from the trees should be allowed to look beautiful the next day.</p>
+        <p>But it did.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>49</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 50 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Sunlight poured through the palms. The sea glittered beyond the beach. Bright birds dipped and flashed above the stream. Somewhere nearby, something sang a tune that almost sounded cheerful.</p>
+        <p>Joeby did not trust it.</p>
+        <p>Danno, unfortunately, looked pleased with himself.</p>
+        <p>“We survived our first night,” he said.</p>
+        <p>Joeby sat beneath the upturned boat, arms folded, hair sticking up beneath his backwards cap.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>50</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 51 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“We nearly died of noises.”</p>
+        <p>“Noises can’t kill you.”</p>
+        <p>“You don’t know that. Some noises sounded very bitey.”</p>
+        <p>Danno laughed and poked the ashes of their dead fire with his spear.</p>
+        <p>“We need food.”</p>
+        <p>“We had food.”</p>
+        <p>“We had half a fish.”</p>
+        <p>“It was a very brave half a fish.”</p>
+        <p>“You ate most of it.”</p>
+        <p>“I was honouring it.”</p>
+        <p>Danno stood and looked towards the jungle.</p>
+        <p>Joeby followed his gaze.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>51</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 52 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“No.”</p>
+        <p>“You don’t know what I was going to say.”</p>
+        <p>“You were going to say jungle.”</p>
+        <p>“I was going to say breakfast.”</p>
+        <p>“In the jungle.”</p>
+        <p>“Probably.”</p>
+        <p>“No.”</p>
+        <p>Danno slung the spear over his shoulder and grinned.</p>
+        <p>“Stay here then.”</p>
+        <p>Joeby jumped up at once.</p>
+        <p>“That’s cheating.”</p>
+        <p>“What is?”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>52</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 53 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“Making me choose between the scary jungle and being alone on the scary beach.”</p>
+        <p>“You're welcome.”</p>
+        <p>Joeby grabbed his wooden sword from where it leaned against the boat.</p>
+        <p>The sword was really just a shaped stick with one end rubbed almost flat against a stone, but Joeby had tied it proudly to his waist with a strip of vine. He drew it now and held it out in front of him.</p>
+        <p>“I’m ready.”</p>
+        <p>Danno looked at it.</p>
+        <p>“For gardening?”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>53</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 54 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“For danger.”</p>
+        <p>“Try not to terrify the bananas.”</p>
+        <p>“There might be no bananas.”</p>
+        <p>“That would be the real danger.”</p>
+        <p>They followed the stream inland, keeping close enough to hear the sea behind them at first. Danno marked the path by cutting small notches into the bark of trees. Joeby marked it by complaining every few steps that all the trees looked exactly the same.</p>
+        <p>“They don’t,” Danno said.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>54</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 55 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“That one looks like that one.”</p>
+        <p>“It has red flowers.”</p>
+        <p>“So does that one.”</p>
+        <p>“That one bends left.”</p>
+        <p>“They all bend. They’re trees.”</p>
+        <p>The jungle grew thicker as they walked. Leaves brushed their shoulders. Vines hung like ropes. Insects hummed in the warm air. Every now and then, something small darted away before they could see it properly.</p>
+        <p>Joeby tried very hard not to keep looking over his shoulder.</p>
+        <p>He failed.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>55</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 56 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno noticed.</p>
+        <p>“You all right?”</p>
+        <p>“Yes.”</p>
+        <p>“You’re walking backwards.”</p>
+        <p>“I’m checking our rear.”</p>
+        <p>“Our rear?”</p>
+        <p>“That’s what soldiers say.”</p>
+        <p>“You are not a soldier.”</p>
+        <p>“I have a sword.”</p>
+        <p>“You have a stick.”</p>
+        <p>Joeby lifted his chin.</p>
+        <p>“All swords start somewhere.”</p>
+        <p>Danno smiled but said nothing.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>56</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 57 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>That was one of the best things about Joeby. He could be scared of almost everything and still somehow keep walking.</p>
+        <p>They found fruit near the stream.</p>
+        <p>At least, Danno said it was fruit.</p>
+        <p>Joeby said it looked like something a frog would refuse.</p>
+        <p>It was yellow, soft, and grew in crooked clusters from low branches. Danno sniffed it. Joeby sniffed it. Neither of them died.</p>
+        <p>Danno took the smallest bite possible.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>57</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 58 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“Well?” Joeby asked.</p>
+        <p>Danno chewed.</p>
+        <p>“It’s good.”</p>
+        <p>“How good?”</p>
+        <p>“Better than half a fish.”</p>
+        <p>“That is not a high wall to climb.”</p>
+        <p>Joeby tried some and immediately reached for more.</p>
+        <p>“Fine,” he admitted. “Island frog fruit is excellent.”</p>
+        <p>They ate until their stomachs stopped hurting. Danno filled the old tin with more, and Joeby tucked two pieces into his pockets, one beside his shell.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>58</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 59 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“We should take some back,” Joeby said.</p>
+        <p>Danno raised an eyebrow.</p>
+        <p>“For who?”</p>
+        <p>“For later me.”</p>
+        <p>“Later you can climb the tree.”</p>
+        <p>“Later me might be tired.”</p>
+        <p>“You’re currently tired.”</p>
+        <p>“I’m preparing.”</p>
+        <p>A rustle sounded above them.</p>
+        <p>Both boys froze.</p>
+        <p>Something moved in the leaves.</p>
+        <p>Joeby slowly drew his wooden sword.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>59</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 60 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“Is it breakfast fighting back?”</p>
+        <p>A small brown face appeared upside down from a branch.</p>
+        <p>Round eyes.</p>
+        <p>Tiny hands.</p>
+        <p>A long tail curled around the wood.</p>
+        <p>The creature blinked at them.</p>
+        <p>Joeby blinked back.</p>
+        <p>“Monkey,” he whispered.</p>
+        <p>The monkey tilted its head.</p>
+        <p>Danno lowered his spear.</p>
+        <p>“Well, that’s new.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>60</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 61 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The monkey dropped lightly onto a lower branch. It looked at Danno. Then Joeby. Then the fruit in Joeby’s hand.</p>
+        <p>Joeby held it protectively against his chest.</p>
+        <p>“No.”</p>
+        <p>The monkey smiled.</p>
+        <p>At least, Joeby was almost certain it smiled.</p>
+        <p>Then it sprang.</p>
+        <p>It landed on Joeby’s shoulder, snatched the fruit from his hand, bounced off Danno’s head, and vanished up the nearest tree in less than three seconds.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>61</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 62 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby shouted.</p>
+        <p>Danno staggered backwards, clutching his hair.</p>
+        <p>The monkey sat on a high branch, eating Joeby’s fruit with both hands.</p>
+        <p>Joeby pointed his sword at it.</p>
+        <p>“That was mine!”</p>
+        <p>The monkey chattered.</p>
+        <p>Danno rubbed his head.</p>
+        <p>“I think he disagrees.”</p>
+        <p>“He stole my breakfast.”</p>
+        <p>“You stole it from a tree.”</p>
+        <p>“The tree wasn’t eating it.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>62</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 63 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The monkey threw the peel.</p>
+        <p>It hit Danno on the forehead.</p>
+        <p>For one breath, everything went silent.</p>
+        <p>Then Joeby laughed so hard he dropped his sword.</p>
+        <p>Danno looked up slowly.</p>
+        <p>The monkey chattered again.</p>
+        <p>“I think,” Joeby said, wiping his eyes, “he likes you.”</p>
+        <p>Danno picked the peel from his hoodie.</p>
+        <p>“I’m going to throw him in the sea.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>63</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 64 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The monkey seemed to understand enough to leap to another branch.</p>
+        <p>Joeby gasped.</p>
+        <p>“He’s getting away!”</p>
+        <p>“With your fruit?”</p>
+        <p>“With my honour!”</p>
+        <p>Before Danno could stop him, Joeby plunged after the monkey between the trees.</p>
+        <p>“Joeby!”</p>
+        <p>“I can see him!”</p>
+        <p>“Wait!”</p>
+        <p>“I’m winning!”</p>
+        <p>“You are chasing a monkey through a jungle!”</p>
+        <p>“He started it!”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>64</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 65 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno swore under his breath in the exact way he was not supposed to and ran after him.</p>
+        <p>The monkey led them brilliantly.</p>
+        <p>Too brilliantly.</p>
+        <p>It always stayed just ahead. Close enough for Joeby to think he could catch it. Far enough to be impossible. It swung over streams, bounced from branches, and once stopped long enough to pull a face that Joeby found deeply disrespectful.</p>
+        <p>They crashed through ferns and ducked beneath fallen trunks.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>65</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 66 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>At first it was funny.</p>
+        <p>Then the jungle changed.</p>
+        <p>The stream noise faded.</p>
+        <p>The sea vanished completely.</p>
+        <p>The air grew still.</p>
+        <p>The monkey stopped chattering.</p>
+        <p>It crouched on a branch ahead, suddenly quiet.</p>
+        <p>Joeby slowed.</p>
+        <p>“Danno?”</p>
+        <p>“I know.”</p>
+        <p>The birds had stopped.</p>
+        <p>All of them.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>66</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 67 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>One moment the jungle had been full of clicks, whistles and wings. Now it held its breath.</p>
+        <p>Danno reached Joeby and put one hand on his shoulder.</p>
+        <p>“Stay behind me.”</p>
+        <p>Joeby did not argue.</p>
+        <p>That was how Danno knew it was bad.</p>
+        <p>Something moved in the undergrowth ahead.</p>
+        <p>Heavy.</p>
+        <p>Slow.</p>
+        <p>Leaves trembled.</p>
+        <p>A branch cracked.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>67</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 68 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The monkey climbed higher, eyes fixed on the ferns.</p>
+        <p>Joeby whispered, “Is it another monkey?”</p>
+        <p>Danno tightened his grip on the spear.</p>
+        <p>“No.”</p>
+        <p>The bushes exploded.</p>
+        <p>A wild boar burst onto the path.</p>
+        <p>It was enormous.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>68</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 69 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Bigger than any pig Joeby had ever seen. Its black hide was scarred and caked in mud. Two curved tusks shone yellow-white beneath its snout. Its small dark eyes fixed on the boys with a rage that felt older than hunger.</p>
+        <p>Joeby stopped breathing.</p>
+        <p>Danno pushed him back.</p>
+        <p>“Move.”</p>
+        <p>Joeby stumbled behind him.</p>
+        <p>The boar scraped one hoof against the earth.</p>
+        <p>Danno raised the spear.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>69</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 70 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>It looked suddenly ridiculous.</p>
+        <p>A sharp stick held by a boy.</p>
+        <p>The boar lowered its head.</p>
+        <p>“Danno,” Joeby whispered.</p>
+        <p>“Run when I say.”</p>
+        <p>“I’m not leaving you.”</p>
+        <p>“Joeby.”</p>
+        <p>“No.”</p>
+        <p>For the first time since they had left home, Danno sounded genuinely angry.</p>
+        <p>“Do what I say.”</p>
+        <p>The boar charged.</p>
+        <p>The ground shook.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>70</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 71 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno planted his feet.</p>
+        <p>He knew, with cold and terrible certainty, that the spear would not stop it.</p>
+        <p>But Joeby was behind him.</p>
+        <p>So he did not move.</p>
+        <p>The boar thundered closer.</p>
+        <p>Ten steps.</p>
+        <p>Five.</p>
+        <p>Three.</p>
+        <p>Something sang through the air.</p>
+        <p>Not a bird.</p>
+        <p>Not a whistle.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>71</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 72 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>An arrow struck the earth directly in front of the boar.</p>
+        <p>The sound cracked like lightning.</p>
+        <p>The boar skidded, tusks ripping the soil. Another arrow landed beside its front hoof. Then a third struck the trunk of a tree so close to its ear that the beast squealed and twisted away.</p>
+        <p>It crashed back into the jungle, snapping branches as it fled.</p>
+        <p>Silence returned.</p>
+        <p>Danno still held the spear raised.</p>
+        <p>His hands were shaking.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>72</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 73 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby clutched the back of Danno’s hoodie so tightly his knuckles had turned white.</p>
+        <p>The monkey dropped lightly onto a fallen log.</p>
+        <p>Then, from above, a girl spoke.</p>
+        <p>“That was brave.”</p>
+        <p>The boys looked up.</p>
+        <p>She stood barefoot on the thick branch of a leaning tree, one hand resting on a curved bow. Sunlight caught in her sandy-blonde hair. Her clothes were patched from leaves, cloth and leather, and a quiver of arrows hung across her back.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>73</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 74 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>She looked about eleven or twelve.</p>
+        <p>Maybe older.</p>
+        <p>Maybe not.</p>
+        <p>It was hard to tell because she stood as though the whole jungle belonged to her.</p>
+        <p>The monkey scrambled up the tree and onto her shoulder.</p>
+        <p>She glanced at Danno’s spear.</p>
+        <p>Then at the gouged earth where the boar had nearly reached him.</p>
+        <p>Then back at Danno.</p>
+        <p>“Brave,” she said again.</p>
+        <p>A tiny smile touched her mouth.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>74</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 75 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“Very silly.”</p>
+        <p>Joeby let go of Danno’s hoodie.</p>
+        <p>Danno lowered the spear.</p>
+        <p>“Who are you?”</p>
+        <p>The girl crouched on the branch, perfectly balanced.</p>
+        <p>The monkey leaned forward and copied her expression.</p>
+        <p>“I was going to ask you that.”</p>
+        <p>“We asked first,” Joeby said.</p>
+        <p>Danno shot him a look.</p>
+        <p>The girl’s smile widened.</p>
+        <p>“I’m Derkik.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>75</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 76 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The name seemed to settle into the trees.</p>
+        <p>The monkey chattered softly.</p>
+        <p>“And that,” she added, nodding to him, “is Lewis.”</p>
+        <p>Lewis bared his teeth in what might have been a grin.</p>
+        <p>Joeby stepped closer to Danno.</p>
+        <p>“Does he bite?”</p>
+        <p>Lewis leaned forward.</p>
+        <p>Derkik looked at the monkey.</p>
+        <p>“Only people he likes.”</p>
+        <p>Joeby swallowed.</p>
+        <p>“Does he like me?”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>76</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 77 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis threw the stolen fruit peel at him.</p>
+        <p>It landed on Joeby’s cap.</p>
+        <p>Derkik laughed.</p>
+        <p>Danno stared at her.</p>
+        <p>“You live here?”</p>
+        <p>“Yes.”</p>
+        <p>“Alone?”</p>
+        <p>“Not exactly.”</p>
+        <p>“Are there others?”</p>
+        <p>Derkik’s smile disappeared.</p>
+        <p>For the first time, she looked past them towards the deeper jungle.</p>
+        <p>“Some.”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>77</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 78 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The word made the warm air feel colder.</p>
+        <p>Joeby tried again.</p>
+        <p>“Can you help us get home?”</p>
+        <p>Derkik looked at the boys.</p>
+        <p>Then towards the sky.</p>
+        <p>Then at the path the boar had torn through the undergrowth.</p>
+        <p>Her face changed in a way Danno did not understand.</p>
+        <p>“You shouldn’t have come here,” she said.</p>
+        <p>“We didn’t mean to,” Joeby replied quickly.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>78</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 79 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Derkik jumped from the branch and landed without a sound.</p>
+        <p>Lewis stayed on her shoulder, watching them with bright, clever eyes.</p>
+        <p>“Nobody ever does.”</p>
+        <p>Danno frowned.</p>
+        <p>“What does that mean?”</p>
+        <p>Derkik turned and began walking deeper into the jungle.</p>
+        <p>“Come on.”</p>
+        <p>Joeby looked at Danno.</p>
+        <p>Danno looked at the girl.</p>
+        <p>“Where?”</p>
+        <p>Derkik didn’t look back.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>79</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 80 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“Somewhere safer than here.”</p>
+        <p>Lewis did look back.</p>
+        <p>He smiled at Joeby as if to say the adventure had only just begun.</p>
+        <p>Joeby whispered, “I don’t know if we should follow her.”</p>
+        <p>Danno stared at the place where the boar had vanished.</p>
+        <p>Then at the arrows buried in the earth.</p>
+        <p>Then at Derkik disappearing between the trees.</p>
+        <p>“We’re following her.”</p>
+        <p>“Because she saved us?”</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>80</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 81 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>“Because she knows where she’s going.”</p>
+        <p>Joeby picked the fruit peel off his cap.</p>
+        <p>“That would be a nice change.”</p>
+        <p>They stepped after her.</p>
+        <p>Behind them, deep in the jungle, the boar gave one last distant scream.</p>
+        <p>Derkik stopped walking.</p>
+        <p>She listened.</p>
+        <p>So did Lewis.</p>
+        <p>“What is it?” Danno asked.</p>
+        <p>The girl did not answer straight away.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>81</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 82 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>When she finally spoke, her voice was quieter than before.</p>
+        <p>“That wasn’t the boar.”</p>
+        <p>The jungle closed around them.</p>
+        <p>And somewhere far away, something whistled three soft notes through the trees.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>82</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 83 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER FIVE</h2>
+        <h1 class="chapter-title">The Girl from the Trees</h1>
+        <p>Nobody spoke for several minutes.</p>
+        <p>Derkik walked ahead as though she had followed the same winding path a thousand times before. Lewis rode happily on her shoulder, occasionally chattering into her ear as if telling her secrets only the two of them understood.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>83</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 84 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno and Joeby exchanged glances behind her.</p>
+        <p>"Shouldn't we ask where we're going?" Joeby whispered.</p>
+        <p>"You ask."</p>
+        <p>"I'm not asking."</p>
+        <p>"You always ask."</p>
+        <p>"That's because you always forget."</p>
+        <p>Danno smiled.</p>
+        <p>"Fair point."</p>
+        <p>Joeby hurried forward until he was walking beside Derkik.</p>
+        <p>"So..."</p>
+        <p>She looked sideways at him.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>84</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 85 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"So?"</p>
+        <p>"Where are we going?"</p>
+        <p>"Home."</p>
+        <p>Joeby blinked.</p>
+        <p>"Our home or your home?"</p>
+        <p>Derkik smiled.</p>
+        <p>"My home."</p>
+        <p>Lewis copied her smile.</p>
+        <p>Joeby frowned.</p>
+        <p>"I don't think monkeys can smile."</p>
+        <p>Lewis immediately pulled a ridiculous face.</p>
+        <p>Danno burst out laughing.</p>
+        <p>"I think you've just been proved wrong."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>85</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 86 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis proudly crossed his arms.</p>
+        <p>"I don't like him," Joeby muttered.</p>
+        <p>Lewis stole another piece of fruit from Joeby's pocket without breaking eye contact.</p>
+        <p>"Oh, that's it!"</p>
+        <p>Joeby gave chase again.</p>
+        <p>Lewis leapt from Derkik's shoulder to a branch, then another, then another, laughing the whole way.</p>
+        <p>"Come back!"</p>
+        <p>Lewis dropped the fruit onto Joeby's head before catching it again as it bounced.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>86</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 87 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Even Derkik laughed.</p>
+        <p>"You'll never catch him."</p>
+        <p>"I don't want to catch him."</p>
+        <p>"You've been chasing him for five minutes."</p>
+        <p>"I want my fruit."</p>
+        <p>"You want revenge."</p>
+        <p>"That too."</p>
+        <p>Danno shook his head.</p>
+        <p>"You've made an enemy."</p>
+        <p>"I've made lunch."</p>
+        <p>Lewis chattered loudly from above.</p>
+        <p>"He says you're slow."</p>
+        <p>Joeby looked up.</p>
+        <p>"You understand him?"</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>87</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 88 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"A little."</p>
+        <p>"What did he really say?"</p>
+        <p>Derkik shrugged.</p>
+        <p>"Mostly that you're slow."</p>
+        <p>The jungle opened into a wide clearing filled with flowers unlike anything the boys had ever seen.</p>
+        <p>Some glowed pale blue beneath the leaves.</p>
+        <p>Others opened only when butterflies landed upon them.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>88</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 89 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>A stream wound quietly through the middle, its water so clear the smooth stones beneath looked close enough to touch.</p>
+        <p>Joeby stopped.</p>
+        <p>"It's beautiful."</p>
+        <p>Derkik nodded.</p>
+        <p>"The island likes this place."</p>
+        <p>"The island?"</p>
+        <p>She knelt beside the stream and dipped her fingers into the water.</p>
+        <p>"The island looks after those who respect it."</p>
+        <p>Danno frowned.</p>
+        <p>"You keep talking about it like it's alive."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>89</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 90 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Derkik looked at him.</p>
+        <p>"Isn't yours?"</p>
+        <p>Before either brother could answer, Lewis suddenly hissed.</p>
+        <p>Not chattered.</p>
+        <p>Hissed.</p>
+        <p>Every smile vanished from Derkik's face.</p>
+        <p>She stood immediately.</p>
+        <p>"What is it?" Danno asked.</p>
+        <p>She held up one finger.</p>
+        <p>Listen.</p>
+        <p>The boys stood perfectly still.</p>
+        <p>Nothing.</p>
+        <p>Then...</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>90</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 91 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>far away...</p>
+        <p>a single knock.</p>
+        <p>Wood striking wood.</p>
+        <p>Again.</p>
+        <p>Knock.</p>
+        <p>Knock.</p>
+        <p>Knock.</p>
+        <p>Joeby whispered,</p>
+        <p>"What's that?"</p>
+        <p>Derkik's eyes searched the trees.</p>
+        <p>"Axes."</p>
+        <p>Danno's stomach tightened.</p>
+        <p>"Someone cutting trees?"</p>
+        <p>She nodded once.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>91</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 92 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"They've come earlier than I thought."</p>
+        <p>"Who has?"</p>
+        <p>Derkik didn't answer.</p>
+        <p>Instead she crouched beside the soft earth near the stream.</p>
+        <p>Fresh footprints crossed the mud.</p>
+        <p>Not bare feet.</p>
+        <p>Boots.</p>
+        <p>Heavy ones.</p>
+        <p>Several different sizes.</p>
+        <p>She placed her hand beside one.</p>
+        <p>"They weren't here yesterday."</p>
+        <p>Danno knelt beside her.</p>
+        <p>"They're not ours."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>92</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 93 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"No."</p>
+        <p>"Do you know whose they are?"</p>
+        <p>Derkik stood again.</p>
+        <p>"I know what they are."</p>
+        <p>Lewis had climbed to the very top of a nearby tree.</p>
+        <p>He stared west.</p>
+        <p>Utterly still.</p>
+        <p>Joeby looked worried.</p>
+        <p>"I've never seen him like that."</p>
+        <p>"You shouldn't."</p>
+        <p>Derkik quietly lifted her bow from her shoulder.</p>
+        <p>For the first time since they'd met her...</p>
+        <p>she looked frightened.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>93</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 94 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"Come."</p>
+        <p>She started walking much faster now.</p>
+        <p>Not running.</p>
+        <p>But not far from it.</p>
+        <p>The boys hurried after her.</p>
+        <p>"Derkik!"</p>
+        <p>No answer.</p>
+        <p>"Derkik!"</p>
+        <p>She finally stopped.</p>
+        <p>Turned.</p>
+        <p>Looked each of them directly in the eye.</p>
+        <p>"When I tell you to hide..."</p>
+        <p>her voice was calm,</p>
+        <p>"...you hide."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>94</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 95 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"When I tell you to stay quiet..."</p>
+        <p>she looked at Danno,</p>
+        <p>"...you stay quiet."</p>
+        <p>"When I tell you to run..."</p>
+        <p>she glanced at Joeby,</p>
+        <p>"...you don't stop."</p>
+        <p>Neither brother joked.</p>
+        <p>Neither argued.</p>
+        <p>Something had changed.</p>
+        <p>The island no longer felt empty.</p>
+        <p>High above the trees, Lewis gave one short warning call.</p>
+        <p>Derkik looked towards the western sky.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>95</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 96 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>A thin ribbon of grey smoke rose above the jungle.</p>
+        <p>Danno saw it too.</p>
+        <p>"Is that a fire?"</p>
+        <p>Derkik nodded slowly.</p>
+        <p>"No."</p>
+        <p>She tightened her grip on the bow.</p>
+        <p>"It's people."</p>
+        <p>The four friends stood silently beneath the trees.</p>
+        <p>Far beyond the jungle...</p>
+        <p>someone had landed on Derkik Island.</p>
+        <p>And whoever they were...</p>
+        <p>they were not alone.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>96</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 97 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER SIX</h2>
+        <h1 class="chapter-title">The Stone Giants</h1>
+        <p>The smoke stayed behind them.</p>
+        <p>Hidden beyond the western trees.</p>
+        <p>Derkik didn't look back once.</p>
+        <p>Neither did Lewis.</p>
+        <p>Danno noticed.</p>
+        <p>Whatever had landed on the island...</p>
+        <p>Derkik already feared it.</p>
+        <p>The jungle became quieter as they travelled.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>97</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 98 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Not empty.</p>
+        <p>Different.</p>
+        <p>The birds no longer sang loudly. Instead they watched from the branches, hopping silently from tree to tree as though following the four travellers.</p>
+        <p>Even Lewis stopped playing.</p>
+        <p>Joeby finally broke the silence.</p>
+        <p>"So..."</p>
+        <p>Derkik looked at him.</p>
+        <p>"So?"</p>
+        <p>"You still haven't explained anything."</p>
+        <p>She smiled.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>98</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 99 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"I've explained lots."</p>
+        <p>"No, you've answered questions."</p>
+        <p>"That's what explaining is."</p>
+        <p>"No, it isn't."</p>
+        <p>Danno laughed.</p>
+        <p>"I think she's winning."</p>
+        <p>Joeby sighed dramatically.</p>
+        <p>"I don't even know if you're real."</p>
+        <p>Lewis immediately reached over and pinched Joeby's ear.</p>
+        <p>"Ouch!"</p>
+        <p>Derkik grinned.</p>
+        <p>"Lewis says you're definitely real."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>99</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 100 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"I wasn't asking him."</p>
+        <p>"He answered anyway."</p>
+        <p>The path climbed steadily until the trees began to thin.</p>
+        <p>Ahead, sunlight flooded through an opening in the jungle.</p>
+        <p>Derkik slowed.</p>
+        <p>Then stopped.</p>
+        <p>"We're here."</p>
+        <p>The boys stepped beside her.</p>
+        <p>Neither spoke.</p>
+        <p>Four enormous stone figures stood before them.</p>
+        <p>Each towered above the treetops.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>100</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 101 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Each had been carved from a single piece of grey rock.</p>
+        <p>Time had covered them with moss and vines, but nothing could hide their size.</p>
+        <p>One held a shield.</p>
+        <p>Another carried a great hammer.</p>
+        <p>The third rested both hands upon a sword.</p>
+        <p>The fourth pointed towards the heart of the island.</p>
+        <p>Joeby whispered,</p>
+        <p>"Who built them?"</p>
+        <p>Nobody answered.</p>
+        <p>Not even Derkik.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>101</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 102 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The clearing felt older than the rest of the island.</p>
+        <p>The air was cooler.</p>
+        <p>The breeze gentler.</p>
+        <p>Even the insects seemed reluctant to cross it.</p>
+        <p>Lewis jumped from Derkik's shoulder.</p>
+        <p>For the first time since the boys had met him...</p>
+        <p>he became completely serious.</p>
+        <p>He scampered towards the nearest giant.</p>
+        <p>Then stopped.</p>
+        <p>Sat down.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>102</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 103 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>And bowed his little head.</p>
+        <p>Joeby frowned.</p>
+        <p>"What's he doing?"</p>
+        <p>Derkik's smile faded.</p>
+        <p>"Saying hello."</p>
+        <p>"To a statue?"</p>
+        <p>"To an old friend."</p>
+        <p>Danno walked slowly towards the nearest giant.</p>
+        <p>Its face had almost disappeared beneath centuries of moss, yet its eyes still seemed alive.</p>
+        <p>Watching.</p>
+        <p>Waiting.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>103</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 104 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>He placed one hand against the cool stone.</p>
+        <p>Something was carved beneath the moss.</p>
+        <p>He brushed it away.</p>
+        <p>A shell.</p>
+        <p>Exactly the same shell as the one on the map.</p>
+        <p>His heart skipped.</p>
+        <p>"Joeby..."</p>
+        <p>Joeby hurried over.</p>
+        <p>"It's the map!"</p>
+        <p>Derkik nodded quietly.</p>
+        <p>"It always has been."</p>
+        <p>"You knew?"</p>
+        <p>"I've always known."</p>
+        <p>Danno turned to her.</p>
+        <p>"What does it mean?"</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>104</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 105 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Instead of answering, Derkik walked to the foot of the statue.</p>
+        <p>She rested her palm gently against the shell carving.</p>
+        <p>Closed her eyes.</p>
+        <p>And whispered...</p>
+        <p>"Thank you."</p>
+        <p>Nothing happened.</p>
+        <p>Joeby looked disappointed.</p>
+        <p>"I thought it might glow."</p>
+        <p>Lewis suddenly squeaked.</p>
+        <p>Not happily.</p>
+        <p>Urgently.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>105</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 106 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Everyone looked towards him.</p>
+        <p>The little monkey was staring at the ground.</p>
+        <p>A single vine had begun to move.</p>
+        <p>Not in the wind.</p>
+        <p>By itself.</p>
+        <p>It slowly curled away from the statue's feet.</p>
+        <p>Revealing a crack between two enormous stones.</p>
+        <p>The ground trembled.</p>
+        <p>Very gently.</p>
+        <p>CLUNK...</p>
+        <p>Something deep beneath them moved.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>106</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 107 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby stepped backwards.</p>
+        <p>"Danno..."</p>
+        <p>The shell carving beneath Derkik's hand slowly sank into the stone.</p>
+        <p>Another deep rumble echoed through the clearing.</p>
+        <p>Then...</p>
+        <p>the earth beside the giant began to open.</p>
+        <p>Not quickly.</p>
+        <p>Slowly.</p>
+        <p>As though it hadn't moved for hundreds of years.</p>
+        <p>Ancient dust drifted into the sunlight.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>107</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 108 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Roots stretched and snapped.</p>
+        <p>Hidden beneath them...</p>
+        <p>a narrow staircase spiralled down into darkness.</p>
+        <p>Cold air rolled upwards.</p>
+        <p>It smelled of old stone.</p>
+        <p>Old water.</p>
+        <p>Old secrets.</p>
+        <p>Nobody moved.</p>
+        <p>Lewis peered down first.</p>
+        <p>Then looked back at Derkik.</p>
+        <p>Almost asking permission.</p>
+        <p>She nodded once.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>108</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 109 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The monkey disappeared into the darkness.</p>
+        <p>Joeby stared.</p>
+        <p>"He's gone."</p>
+        <p>"He'll come back."</p>
+        <p>"How do you know?"</p>
+        <p>"He always does."</p>
+        <p>Silence settled again.</p>
+        <p>Danno looked into the staircase.</p>
+        <p>His heart pounded.</p>
+        <p>Half of him wanted to run.</p>
+        <p>The other half wanted to know what waited below.</p>
+        <p>He smiled.</p>
+        <p>"I suppose..."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>109</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 110 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>he looked at Derkik,</p>
+        <p>"...this is where the adventure really begins?"</p>
+        <p>For the first time...</p>
+        <p>Derkik smiled exactly as children should smile.</p>
+        <p>Not like a guardian.</p>
+        <p>Not like a mystery.</p>
+        <p>Just like an eleven-year-old girl excited to share her favourite secret.</p>
+        <p>"I was wondering how long it would take you to say that."</p>
+        <p>She picked up a burning branch from an old stone bowl beside the giant.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>110</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 111 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The dry resin flared into a golden torch.</p>
+        <p>She held it towards Danno.</p>
+        <p>"You first."</p>
+        <p>Danno blinked.</p>
+        <p>"Me?"</p>
+        <p>"You wanted adventure."</p>
+        <p>Joeby looked at the dark staircase.</p>
+        <p>"I'd just like to point out..."</p>
+        <p>he swallowed,</p>
+        <p>"...I never wanted adventure."</p>
+        <p>Lewis suddenly reappeared from below.</p>
+        <p>He chattered loudly.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>111</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 112 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Then stole Joeby's wooden sword before vanishing down the steps again.</p>
+        <p>"My sword!"</p>
+        <p>Joeby sighed.</p>
+        <p>"I suppose we're going after him."</p>
+        <p>Danno laughed.</p>
+        <p>"Now who's chasing monkeys?"</p>
+        <p>Together...</p>
+        <p>the four friends disappeared beneath the Stone Giants.</p>
+        <p>High above them...</p>
+        <p>the jungle became silent once more.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>112</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 113 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Far away, beyond the western hills...</p>
+        <p>another tree crashed to the ground.</p>
+        <p>The strangers were coming.</p>
+        <p>And the island...</p>
+        <p>was beginning to wake.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>113</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 114 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER SEVEN</h2>
+        <h1 class="chapter-title">The Crystal River</h1>
+        <p>The staircase seemed endless.</p>
+        <p>The torchlight danced across smooth stone walls that curved gently around them, as though the passage had been carved by water rather than by hands.</p>
+        <p>Danno led the way.</p>
+        <p>Behind him came Derkik.</p>
+        <p>Then Joeby.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>114</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 115 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis disappeared somewhere ahead, his tiny feet echoing softly through the darkness.</p>
+        <p>"I can't see him anymore," Joeby whispered.</p>
+        <p>"You don't need to," Derkik replied.</p>
+        <p>"He knows the way."</p>
+        <p>"That's exactly what worries me."</p>
+        <p>The air became cooler with every step.</p>
+        <p>Drops of water fell from the ceiling, each one echoing through the tunnel like the ticking of a giant clock.</p>
+        <p>Danno ran his fingers across the walls.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>115</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 116 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"They're smooth."</p>
+        <p>"They're old," Derkik answered.</p>
+        <p>"How old?"</p>
+        <p>She thought for a moment.</p>
+        <p>"Older than stories."</p>
+        <p>Joeby frowned.</p>
+        <p>"That's not a proper answer."</p>
+        <p>"It's the only one I know."</p>
+        <p>The passage bent sharply.</p>
+        <p>A faint blue light appeared ahead.</p>
+        <p>Not bright.</p>
+        <p>Not enough to see by.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>116</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 117 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Just enough to promise something waited beyond.</p>
+        <p>Lewis chattered excitedly.</p>
+        <p>Then disappeared around the corner.</p>
+        <p>The children followed.</p>
+        <p>And stopped.</p>
+        <p>Before them flowed the most beautiful river either brother had ever seen.</p>
+        <p>The water was perfectly clear.</p>
+        <p>Not blue.</p>
+        <p>Not green.</p>
+        <p>Crystal.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>117</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 118 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>It glowed gently from beneath, lighting the cavern with a soft silver shimmer.</p>
+        <p>Tiny white fish drifted lazily through the current like floating stars.</p>
+        <p>Above them, thousands of sparkling crystals hung from the cave roof.</p>
+        <p>Every drop of water turned them into tiny rainbows.</p>
+        <p>Joeby forgot to breathe.</p>
+        <p>"It's..."</p>
+        <p>He searched for a word.</p>
+        <p>"...impossible."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>118</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 119 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno slowly knelt beside the water.</p>
+        <p>He reached out one finger.</p>
+        <p>The surface rippled.</p>
+        <p>Instantly, hundreds of tiny lights swirled around his hand.</p>
+        <p>He jumped backwards.</p>
+        <p>"What was that?"</p>
+        <p>Derkik smiled.</p>
+        <p>"The river saying hello."</p>
+        <p>Lewis splashed into the shallows.</p>
+        <p>He wasn't swimming.</p>
+        <p>He was playing.</p>
+        <p>The glowing fish followed him happily.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>119</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 120 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"They're not scared of him," Joeby said.</p>
+        <p>"They know Lewis."</p>
+        <p>"How?"</p>
+        <p>"They've always known Lewis."</p>
+        <p>Joeby decided not to ask another question.</p>
+        <p>He wasn't sure he wanted another mysterious answer.</p>
+        <p>The river curved away into darkness, disappearing beneath towering stone arches covered in strange carvings.</p>
+        <p>Danno walked towards one.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>120</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 121 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The carving showed four children standing beneath an enormous tree.</p>
+        <p>One child held a bow.</p>
+        <p>Another carried a spear.</p>
+        <p>One held a shell.</p>
+        <p>The fourth...</p>
+        <p>was too worn away to recognise.</p>
+        <p>"Look."</p>
+        <p>Joeby joined him.</p>
+        <p>"That's us."</p>
+        <p>Derkik looked carefully.</p>
+        <p>"No."</p>
+        <p>"Isn't it?"</p>
+        <p>She gently brushed moss from the carving.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>121</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 122 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"The island remembers everyone."</p>
+        <p>Silence settled over the cave.</p>
+        <p>Danno stared at the ancient figures.</p>
+        <p>"How many people have been here before us?"</p>
+        <p>Derkik looked towards the glowing river.</p>
+        <p>"I don't know."</p>
+        <p>Then she smiled.</p>
+        <p>"But not many found their way home."</p>
+        <p>Joeby swallowed.</p>
+        <p>"I liked it better before you said that."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>122</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 123 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis suddenly climbed onto a rock in the middle of the river.</p>
+        <p>He stood perfectly still.</p>
+        <p>Then pointed upstream.</p>
+        <p>Derkik's smile faded.</p>
+        <p>"He wants us to keep going."</p>
+        <p>"What's upstream?" Danno asked.</p>
+        <p>She looked at the glowing current.</p>
+        <p>"The Heart."</p>
+        <p>Joeby brightened.</p>
+        <p>"So we're nearly there?"</p>
+        <p>Derkik shook her head.</p>
+        <p>"No."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>123</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 124 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>She looked into the darkness where the river disappeared.</p>
+        <p>"We've only just begun."</p>
+        <p>Far above them...</p>
+        <p>almost too faint to hear...</p>
+        <p>came the distant sound of another tree falling somewhere on the western side of the island.</p>
+        <p>The strangers were still coming.</p>
+        <p>But down here...</p>
+        <p>beside the Crystal River...</p>
+        <p>the island seemed determined to keep its secrets a little longer.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>124</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 125 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER EIGHT</h2>
+        <h1 class="chapter-title">Smoke Above the Trees</h1>
+        <p>The Crystal River became narrower as the four friends followed it deeper beneath the island.</p>
+        <p>Sometimes the ceiling disappeared so high above them that the torchlight could no longer reach it.</p>
+        <p>Sometimes the river squeezed between smooth stone walls so tightly they had to walk single file.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>125</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 126 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis always stayed ahead.</p>
+        <p>Every now and then he would stop, chatter softly, then continue as though checking the path was still safe.</p>
+        <p>Joeby had stopped asking questions.</p>
+        <p>Mostly because Derkik's answers only created three new ones.</p>
+        <p>"So..." Danno said, smiling.</p>
+        <p>"You're thinking."</p>
+        <p>"I am."</p>
+        <p>"I can tell."</p>
+        <p>"How?"</p>
+        <p>"You scratch your chin."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>126</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 127 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"I do not."</p>
+        <p>"You are."</p>
+        <p>Danno quickly lowered his hand.</p>
+        <p>"I was... thinking about something else."</p>
+        <p>Joeby grinned.</p>
+        <p>"No, you weren't."</p>
+        <p>Derkik laughed quietly.</p>
+        <p>"You two argue like squirrels."</p>
+        <p>"We're brothers."</p>
+        <p>"I noticed."</p>
+        <p>Lewis suddenly turned around and copied the boys, waving his little arms dramatically and chattering at the top of his voice.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>127</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 128 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby pointed.</p>
+        <p>"See? Even he thinks you're wrong."</p>
+        <p>Lewis nodded enthusiastically.</p>
+        <p>"I don't think that's what he's saying," Danno replied.</p>
+        <p>"He definitely took my side."</p>
+        <p>Lewis climbed onto Joeby's shoulder and wrapped his tail around his cap.</p>
+        <p>"There."</p>
+        <p>Joeby folded his arms proudly.</p>
+        <p>"I've made a friend."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>128</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 129 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis immediately stole another piece of fruit from Joeby's pocket.</p>
+        <p>"...I've made a thief."</p>
+        <p>Even Derkik laughed.</p>
+        <p>For a little while, the cave echoed with nothing but happy voices.</p>
+        <p>It felt safe.</p>
+        <p>It felt hidden.</p>
+        <p>It felt like the outside world had disappeared.</p>
+        <p>Then Lewis froze.</p>
+        <p>Completely.</p>
+        <p>Every hair along his back stood upright.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>129</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 130 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>He looked towards the narrow shaft of daylight spilling down from a crack high in the cave roof.</p>
+        <p>Derkik stopped walking immediately.</p>
+        <p>"What is it?" Danno whispered.</p>
+        <p>Instead of answering, she climbed onto a low boulder and looked up through the opening.</p>
+        <p>Her smile vanished.</p>
+        <p>Slowly...</p>
+        <p>she climbed back down.</p>
+        <p>"We're leaving."</p>
+        <p>"So soon?" Joeby asked.</p>
+        <p>"The river can wait."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>130</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 131 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"Why?"</p>
+        <p>Derkik simply pointed upwards.</p>
+        <p>Danno climbed onto the rock beside her.</p>
+        <p>Far above the jungle canopy...</p>
+        <p>a thin ribbon of dark grey smoke drifted across the blue sky.</p>
+        <p>Not one.</p>
+        <p>Three.</p>
+        <p>Separate fires.</p>
+        <p>Close together.</p>
+        <p>He frowned.</p>
+        <p>"Lightning?"</p>
+        <p>Derkik shook her head.</p>
+        <p>"No."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>131</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 132 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"Forest fire?"</p>
+        <p>"No."</p>
+        <p>Her voice had become almost a whisper.</p>
+        <p>"Campfires."</p>
+        <p>Joeby looked from one face to the other.</p>
+        <p>"You mean..."</p>
+        <p>Derkik nodded.</p>
+        <p>"They're here."</p>
+        <p>Nobody needed to ask who.</p>
+        <p>The silence answered for them.</p>
+        <p>The four friends hurried back through the tunnels.</p>
+        <p>No one joked now.</p>
+        <p>Even Lewis stayed close.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>132</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 133 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>By the time they climbed back into daylight, the sun had already begun to fall towards the western sea.</p>
+        <p>Derkik led them to the top of a rocky ridge overlooking the jungle.</p>
+        <p>She knelt.</p>
+        <p>Motioned for the boys to do the same.</p>
+        <p>Then she carefully pushed aside a curtain of leaves.</p>
+        <p>Far below...</p>
+        <p>the western shoreline stretched into the distance.</p>
+        <p>Danno's stomach tightened.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>133</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 134 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>A ship.</p>
+        <p>Large.</p>
+        <p>Black.</p>
+        <p>Its sails furled.</p>
+        <p>Anchored inside a hidden bay.</p>
+        <p>Smoke rose from several campfires on the beach.</p>
+        <p>Tiny figures carried barrels ashore.</p>
+        <p>Others chopped wood.</p>
+        <p>Some sharpened swords.</p>
+        <p>Joeby counted quietly.</p>
+        <p>"...one..."</p>
+        <p>"...two..."</p>
+        <p>"...ten..."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>134</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 135 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"...fifteen..."</p>
+        <p>"...twenty..."</p>
+        <p>"There are too many."</p>
+        <p>Danno swallowed.</p>
+        <p>"They're pirates."</p>
+        <p>He had imagined pirates all his life.</p>
+        <p>These weren't storybook pirates.</p>
+        <p>These men looked hard.</p>
+        <p>Scarred.</p>
+        <p>Tired.</p>
+        <p>Dangerous.</p>
+        <p>One laughed as he threw an axe into a tree.</p>
+        <p>Another kicked a barrel down the beach.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>135</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 136 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>None of them smiled for long.</p>
+        <p>Derkik watched silently.</p>
+        <p>"They've come for Red Gold."</p>
+        <p>Joeby looked confused.</p>
+        <p>"But... they don't know where it is."</p>
+        <p>"No."</p>
+        <p>"They'll never find the Silver Tree."</p>
+        <p>"No."</p>
+        <p>"Then why are you worried?"</p>
+        <p>Derkik didn't answer immediately.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>136</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 137 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Instead she watched another group disappear into the jungle carrying ropes, picks and shovels.</p>
+        <p>"They only have to ask the island the wrong question..."</p>
+        <p>she whispered.</p>
+        <p>"...and people get hurt."</p>
+        <p>Danno looked at the pirate camp.</p>
+        <p>Then back towards the peaceful valley behind them.</p>
+        <p>Something changed inside him.</p>
+        <p>This island had saved them.</p>
+        <p>Fed them.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>137</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 138 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Protected them.</p>
+        <p>And now...</p>
+        <p>someone had come to steal from it.</p>
+        <p>He looked at Derkik.</p>
+        <p>"What do we do?"</p>
+        <p>For the first time since meeting her...</p>
+        <p>Derkik didn't have an answer.</p>
+        <p>The wind carried the sound of a pirate horn across the bay.</p>
+        <p>Lewis climbed quietly onto Danno's shoulder.</p>
+        <p>Below them...</p>
+        <p>the first group of pirates disappeared beneath the trees.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>138</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 139 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Their journey towards the heart of the island had begun.</p>
+        <p>Danno gripped his spear a little tighter.</p>
+        <p>He looked at Joeby.</p>
+        <p>Then at Derkik.</p>
+        <p>Then back towards the jungle.</p>
+        <p>Quietly...</p>
+        <p>almost to himself...</p>
+        <p>he whispered,</p>
+        <p>"We're not alone anymore."</p>
+        <p>Far below...</p>
+        <p>one pirate stopped walking.</p>
+        <p>He looked slowly towards the ridge.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>139</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 140 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>As though he felt someone watching.</p>
+        <p>Then...</p>
+        <p>he smiled.</p>
+        <p>The adventure had just changed.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>140</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 141 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER NINE</h2>
+        <h1 class="chapter-title">The Heart of the Island</h1>
+        <p>Nobody slept well that night.</p>
+        <p>The pirate campfires glowed like tiny orange stars across the western shoreline. Even from the safety of Derkik's hidden valley, they could see their light flickering between the distant trees.</p>
+        <p>Lewis slept high above them, curled in the branches of a giant fig tree.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>141</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 142 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Every so often he opened one eye.</p>
+        <p>Checked the darkness.</p>
+        <p>Then settled again.</p>
+        <p>Joeby sat beside the fire, hugging his knees.</p>
+        <p>"I wish we'd never found this place."</p>
+        <p>Danno looked up.</p>
+        <p>"You don't mean that."</p>
+        <p>Joeby stared into the flames.</p>
+        <p>"I know."</p>
+        <p>"It's just..."</p>
+        <p>He struggled for the words.</p>
+        <p>"...it doesn't feel like an adventure anymore."</p>
+        <p>Danno nodded quietly.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>142</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 143 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"It feels real."</p>
+        <p>Neither brother spoke after that.</p>
+        <p>Across the fire, Derkik was sharpening one of her arrows with a smooth stone.</p>
+        <p>The sound was soft.</p>
+        <p>Steady.</p>
+        <p>Almost peaceful.</p>
+        <p>Danno watched her for a while.</p>
+        <p>"You've known they would come one day, haven't you?"</p>
+        <p>She didn't stop sharpening.</p>
+        <p>"Yes."</p>
+        <p>"For how long?"</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>143</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 144 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>She smiled sadly.</p>
+        <p>"My whole life."</p>
+        <p>Joeby frowned.</p>
+        <p>"How?"</p>
+        <p>"My grandmother knew."</p>
+        <p>"Her grandmother knew."</p>
+        <p>"And hers before that."</p>
+        <p>"The island remembers."</p>
+        <p>Danno poked another stick into the fire.</p>
+        <p>"So your family have always protected it?"</p>
+        <p>Derkik nodded.</p>
+        <p>"As long as anyone remembers."</p>
+        <p>"And after me..."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>144</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 145 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>she looked towards the Silver Mountains in the distance,</p>
+        <p>"...someone else will."</p>
+        <p>Danno didn't answer.</p>
+        <p>But something about those words stayed with him.</p>
+        <p>The next morning, Derkik woke them before sunrise.</p>
+        <p>"We're going somewhere."</p>
+        <p>Joeby groaned.</p>
+        <p>"Can't we go somewhere after breakfast?"</p>
+        <p>"We're going to breakfast."</p>
+        <p>That made him sit up.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>145</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 146 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis dropped from the tree and landed neatly on Joeby's shoulder.</p>
+        <p>The little monkey immediately began searching his pockets.</p>
+        <p>"There isn't any food in there."</p>
+        <p>Lewis searched anyway.</p>
+        <p>"You see?" Danno laughed.</p>
+        <p>"He doesn't trust you either."</p>
+        <p>Lewis finally found Joeby's shell instead.</p>
+        <p>He held it up curiously.</p>
+        <p>Derkik's smile disappeared.</p>
+        <p>"Where did you get that?"</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>146</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 147 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby took it back carefully.</p>
+        <p>"On the beach at home."</p>
+        <p>She looked at it for a very long time.</p>
+        <p>Then nodded slowly.</p>
+        <p>"Keep it safe."</p>
+        <p>"Why?"</p>
+        <p>"It belongs here."</p>
+        <p>Joeby blinked.</p>
+        <p>"What do you mean?"</p>
+        <p>Derkik only smiled.</p>
+        <p>"You'll understand one day."</p>
+        <p>She led them beyond the Crystal River, along a narrow path carpeted with bright green moss.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>147</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 148 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The air smelled sweeter here.</p>
+        <p>Flowers grew larger than anywhere else on the island.</p>
+        <p>Birds with shimmering blue feathers landed fearlessly on nearby branches.</p>
+        <p>One even perched on Danno's outstretched hand before flying away again.</p>
+        <p>"They're not scared of us."</p>
+        <p>"They know," Derkik replied.</p>
+        <p>"They know what?"</p>
+        <p>She looked around the valley.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>148</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 149 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"When someone belongs."</p>
+        <p>The words hung in the warm morning air.</p>
+        <p>After another hour's walk, the trees suddenly opened.</p>
+        <p>The children stepped into a place unlike anything they had ever imagined.</p>
+        <p>A great circular valley stretched before them.</p>
+        <p>Crystal water flowed through its centre in gentle streams.</p>
+        <p>Thousands of butterflies floated above fields of wildflowers.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>149</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 150 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Deer grazed peacefully beside rabbits.</p>
+        <p>Foxes slept beneath ancient oak trees while colourful birds built nests above them.</p>
+        <p>Nothing hunted.</p>
+        <p>Nothing fled.</p>
+        <p>Everything lived together.</p>
+        <p>Joeby whispered,</p>
+        <p>"It's like..."</p>
+        <p>He couldn't finish.</p>
+        <p>Danno found the words.</p>
+        <p>"It's alive."</p>
+        <p>Derkik smiled.</p>
+        <p>"This..."</p>
+        <p>she said softly,</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>150</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 151 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"...is the Heart of the Island."</p>
+        <p>Not the tree.</p>
+        <p>Not yet.</p>
+        <p>Just the valley.</p>
+        <p>The place where every river, every path and every creature seemed to meet.</p>
+        <p>Lewis scampered ahead, chasing butterflies through the flowers.</p>
+        <p>Even Joeby laughed.</p>
+        <p>For the first time since arriving on the island...</p>
+        <p>he forgot to be afraid.</p>
+        <p>Danno walked beside Derkik.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>151</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 152 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"Is this why you stayed?"</p>
+        <p>She looked at him, surprised.</p>
+        <p>"I was born here."</p>
+        <p>"No."</p>
+        <p>He smiled.</p>
+        <p>"I mean...is this why you never wanted to leave?"</p>
+        <p>Derkik looked across the valley.</p>
+        <p>Towards something hidden behind a curtain of silver mist.</p>
+        <p>Quietly she answered,</p>
+        <p>"I've never wanted anything else."</p>
+        <p>The wind stirred gently through the flowers.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>152</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 153 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Somewhere beyond the mist...</p>
+        <p>something shimmered.</p>
+        <p>Just for a second.</p>
+        <p>Almost like sunlight reflecting from silver branches.</p>
+        <p>Danno noticed.</p>
+        <p>"What was that?"</p>
+        <p>Derkik looked too.</p>
+        <p>A warm smile spread across her face.</p>
+        <p>"Not today."</p>
+        <p>She turned away before either brother could ask another question.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>153</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 154 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis suddenly appeared carrying an enormous piece of fruit almost bigger than himself.</p>
+        <p>He proudly offered it to Joeby.</p>
+        <p>Joeby accepted it with a grin.</p>
+        <p>"I think..."</p>
+        <p>he said,</p>
+        <p>"...he likes me now."</p>
+        <p>Lewis immediately snatched it back and climbed the nearest tree.</p>
+        <p>Danno burst out laughing.</p>
+        <p>"I wouldn't get too confident."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>154</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 155 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Their laughter echoed around the valley.</p>
+        <p>For a little while...</p>
+        <p>they forgot the pirates.</p>
+        <p>Forgot the danger.</p>
+        <p>Forgot they were stranded.</p>
+        <p>And somewhere, hidden beyond the silver mist...</p>
+        <p>the Heart of the Island waited patiently.</p>
+        <p>Watching.</p>
+        <p>Waiting.</p>
+        <p>As though it knew...</p>
+        <p>their greatest adventure was still to come.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>155</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 156 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER TEN</h2>
+        <h1 class="chapter-title">The Silver Tree</h1>
+        <p>The valley was silent.</p>
+        <p>Not empty.</p>
+        <p>Not lonely.</p>
+        <p>Peaceful.</p>
+        <p>Even the breeze seemed to move more gently here, carrying the sweet scent of flowers through the warm morning air.</p>
+        <p>Derkik walked slowly ahead.</p>
+        <p>Lewis stayed unusually close beside her.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>156</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 157 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The playful monkey who had spent days stealing fruit and teasing Joeby now seemed almost respectful.</p>
+        <p>Joeby noticed.</p>
+        <p>"I've never seen him this quiet."</p>
+        <p>Derkik smiled.</p>
+        <p>"He knows where we are."</p>
+        <p>Danno looked around.</p>
+        <p>"I thought this was the Heart of the Island."</p>
+        <p>"It is."</p>
+        <p>"Then why are we still walking?"</p>
+        <p>Derkik stopped.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>157</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 158 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"Because every heart has something worth protecting."</p>
+        <p>She gently pushed aside a curtain of silver vines hanging between two ancient oak trees.</p>
+        <p>Soft light spilled through.</p>
+        <p>Not sunlight.</p>
+        <p>Something gentler.</p>
+        <p>Something warmer.</p>
+        <p>She stepped aside.</p>
+        <p>For a moment...</p>
+        <p>neither boy moved.</p>
+        <p>Then they walked through.</p>
+        <p>The world beyond stole every word they had.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>158</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 159 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>In the centre of a perfect circular clearing stood the largest tree they had ever seen.</p>
+        <p>Its trunk was wider than a cottage.</p>
+        <p>Its branches reached high above the valley like great silver arms embracing the sky.</p>
+        <p>Every leaf shimmered as though moonlight had settled upon it.</p>
+        <p>The bark wasn't brown.</p>
+        <p>It gleamed like polished silver.</p>
+        <p>Thousands of tiny silver leaves danced together without making a sound.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>159</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 160 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The tree seemed...</p>
+        <p>alive.</p>
+        <p>Not like an ordinary tree.</p>
+        <p>Like something older.</p>
+        <p>Something wise.</p>
+        <p>Crystal streams flowed from its roots in every direction, feeding the rivers that crossed the island.</p>
+        <p>Above the branches, hundreds of white birds circled lazily through shafts of sunlight.</p>
+        <p>None landed.</p>
+        <p>It felt wrong to disturb the place.</p>
+        <p>Joeby whispered,</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>160</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 161 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"It's beautiful."</p>
+        <p>Danno couldn't answer.</p>
+        <p>He simply stared.</p>
+        <p>Lewis walked quietly to the roots and sat down.</p>
+        <p>Head lowered.</p>
+        <p>Almost as though saying hello to an old friend.</p>
+        <p>Derkik did the same.</p>
+        <p>The boys copied her without really knowing why.</p>
+        <p>After a long silence she finally spoke.</p>
+        <p>"This..."</p>
+        <p>her voice barely louder than the breeze,</p>
+        <p>"...is the Silver Tree."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>161</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 162 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Nobody asked another question.</p>
+        <p>None seemed big enough.</p>
+        <p>A single silver leaf drifted gently through the air.</p>
+        <p>It landed in Danno's hand.</p>
+        <p>Warm.</p>
+        <p>Not cold.</p>
+        <p>Warm, like it had been resting in sunlight all morning.</p>
+        <p>He smiled.</p>
+        <p>"It feels..."</p>
+        <p>"I know," Derkik whispered.</p>
+        <p>"It always does."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>162</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 163 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby wandered carefully around the enormous trunk.</p>
+        <p>Then he stopped.</p>
+        <p>"Danno..."</p>
+        <p>His voice trembled.</p>
+        <p>The others joined him.</p>
+        <p>Growing beneath the highest branches were hundreds of glowing crimson fruits.</p>
+        <p>Round.</p>
+        <p>Perfect.</p>
+        <p>Each one shone like a tiny lantern against the silver leaves.</p>
+        <p>Lewis climbed onto a low root and pointed excitedly.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>163</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 164 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Derkik smiled.</p>
+        <p>"Red Gold."</p>
+        <p>Joeby frowned.</p>
+        <p>"They're fruit."</p>
+        <p>"Yes."</p>
+        <p>"I thought Red Gold was treasure."</p>
+        <p>"It is."</p>
+        <p>She gently picked one.</p>
+        <p>Held it carefully in both hands.</p>
+        <p>It glowed softly.</p>
+        <p>Then she placed it on the ground.</p>
+        <p>Nothing happened.</p>
+        <p>For several moments the fruit simply rested upon the moss.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>164</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 165 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Then...</p>
+        <p>a tiny crack appeared.</p>
+        <p>The skin slowly hardened.</p>
+        <p>Its bright red colour deepened until it sparkled like polished ruby.</p>
+        <p>Within seconds...</p>
+        <p>the fruit had become a perfect crimson gemstone.</p>
+        <p>Neither brother spoke.</p>
+        <p>Danno finally whispered,</p>
+        <p>"That's impossible."</p>
+        <p>Derkik looked at him.</p>
+        <p>"No."</p>
+        <p>She smiled.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>165</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 166 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"It's the island."</p>
+        <p>Joeby knelt beside the ruby.</p>
+        <p>"So that's why the pirates came."</p>
+        <p>"They heard stories."</p>
+        <p>"They thought someone buried treasure."</p>
+        <p>"They never understood."</p>
+        <p>Danno looked back at the tree.</p>
+        <p>"So every ruby..."</p>
+        <p>Derkik nodded.</p>
+        <p>"...began here."</p>
+        <p>Lewis carefully picked up the ruby.</p>
+        <p>Instead of keeping it...</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>166</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 167 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>he buried it gently beneath the roots again.</p>
+        <p>Joeby looked surprised.</p>
+        <p>"Why did he do that?"</p>
+        <p>Derkik watched Lewis cover the tiny stone with soft earth.</p>
+        <p>"Because Red Gold doesn't belong to anyone."</p>
+        <p>"It belongs to the island."</p>
+        <p>The wind stirred once more.</p>
+        <p>Hundreds of silver leaves shimmered together.</p>
+        <p>For just one heartbeat...</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>167</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 168 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>the tree seemed to glow.</p>
+        <p>Not brightly.</p>
+        <p>Just enough to make the whole clearing feel alive.</p>
+        <p>Danno looked around slowly.</p>
+        <p>He thought about Blackwater Cove.</p>
+        <p>Home.</p>
+        <p>His mum.</p>
+        <p>School.</p>
+        <p>The little blue boat.</p>
+        <p>Then he looked back at the Silver Tree.</p>
+        <p>He couldn't explain it.</p>
+        <p>But something inside him had changed.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>168</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 169 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>This wasn't treasure.</p>
+        <p>This wasn't adventure anymore.</p>
+        <p>This place mattered.</p>
+        <p>He finally understood why Derkik had never left.</p>
+        <p>A distant sound drifted across the valley.</p>
+        <p>Not birds.</p>
+        <p>Not wind.</p>
+        <p>A horn.</p>
+        <p>Long.</p>
+        <p>Deep.</p>
+        <p>It echoed through the jungle before fading into silence.</p>
+        <p>Derkik's smile disappeared.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>169</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 170 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis was already climbing higher into the branches.</p>
+        <p>Watching the western hills.</p>
+        <p>Another horn sounded.</p>
+        <p>Closer.</p>
+        <p>Joeby looked frightened.</p>
+        <p>"The pirates?"</p>
+        <p>Derkik nodded once.</p>
+        <p>"They've found the first trail."</p>
+        <p>Danno looked from the distant hills...</p>
+        <p>back to the Silver Tree.</p>
+        <p>He tightened his grip around his spear.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>170</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 171 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>For the first time since arriving on the island...</p>
+        <p>he knew exactly what he wanted.</p>
+        <p>He wasn't thinking about going home.</p>
+        <p>He was thinking about keeping this place safe.</p>
+        <p>The Silver Tree shimmered gently behind them.</p>
+        <p>As if it had heard his decision.</p>
+        <p>Far beyond the valley...</p>
+        <p>the pirates marched deeper into the island.</p>
+        <p>And somewhere in the eastern mountains...</p>
+        <p>a single ancient horn answered them.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>171</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 172 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The Sages had heard the intruders.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>172</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 173 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER ELEVEN</h2>
+        <h1 class="chapter-title">The Choice</h1>
+        <p>The pirate horn echoed once more.</p>
+        <p>Long.</p>
+        <p>Low.</p>
+        <p>Ancient.</p>
+        <p>The peaceful silence beneath the Silver Tree disappeared in an instant.</p>
+        <p>Lewis shot down from the branches, chattering urgently.</p>
+        <p>Derkik was already moving.</p>
+        <p>"We have to go."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>173</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 174 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby looked back at the glowing fruit.</p>
+        <p>"They're coming here?"</p>
+        <p>"No."</p>
+        <p>"Not yet."</p>
+        <p>She looked towards the western hills.</p>
+        <p>"They've found the old trail."</p>
+        <p>Danno frowned.</p>
+        <p>"The one leading here?"</p>
+        <p>Derkik shook her head.</p>
+        <p>"The wrong one."</p>
+        <p>Joeby looked confused.</p>
+        <p>"There are two?"</p>
+        <p>"There are many."</p>
+        <p>"The island changes them."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>174</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 175 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Danno stared.</p>
+        <p>"The island changes the paths?"</p>
+        <p>"Sometimes."</p>
+        <p>"And the pirates don't know?"</p>
+        <p>"They think maps are stronger than the island."</p>
+        <p>Lewis squeaked loudly.</p>
+        <p>Derkik looked towards him.</p>
+        <p>"I know."</p>
+        <p>She turned back to the boys.</p>
+        <p>"Come."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>175</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 176 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>They hurried through the valley, following a narrow path that twisted between giant roots and crystal streams.</p>
+        <p>After almost an hour, Derkik stopped beside a huge boulder overlooking the western jungle.</p>
+        <p>Below them...</p>
+        <p>the pirates had reached an ancient stone crossroads.</p>
+        <p>Four weathered paths stretched in different directions.</p>
+        <p>One climbed towards the eastern mountains.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>176</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 177 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Another disappeared into dark marshland.</p>
+        <p>A third circled back towards the western cliffs.</p>
+        <p>The fourth...</p>
+        <p>was completely hidden beneath vines.</p>
+        <p>The pirate leader unfolded an old map across a flat rock.</p>
+        <p>Several men argued loudly.</p>
+        <p>One pointed east.</p>
+        <p>Another shook his head.</p>
+        <p>An older pirate knelt and examined the ground.</p>
+        <p>Then...</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>177</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 178 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>he slowly pointed towards the eastern mountains.</p>
+        <p>The whole group began walking.</p>
+        <p>Derkik smiled.</p>
+        <p>"They've chosen."</p>
+        <p>Joeby looked puzzled.</p>
+        <p>"They've gone the wrong way?"</p>
+        <p>"There isn't a right way."</p>
+        <p>"They'll never find the Silver Tree."</p>
+        <p>"No."</p>
+        <p>"What will they find?"</p>
+        <p>Derkik became quiet.</p>
+        <p>"The Sages."</p>
+        <p>A cool breeze passed over the ridge.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>178</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 179 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Even Lewis stopped fidgeting.</p>
+        <p>Danno looked east.</p>
+        <p>"The Sages..."</p>
+        <p>"They're dangerous?"</p>
+        <p>"They weren't."</p>
+        <p>"Weren't?"</p>
+        <p>"They protected the island for so long..."</p>
+        <p>"...they forgot everything else."</p>
+        <p>Joeby swallowed.</p>
+        <p>"They forgot who they were?"</p>
+        <p>Derkik nodded sadly.</p>
+        <p>"They remember only one thing."</p>
+        <p>"Protect the east."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>179</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 180 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Silence settled over the ridge.</p>
+        <p>The pirate column disappeared beneath the trees.</p>
+        <p>One by one...</p>
+        <p>their voices faded.</p>
+        <p>Their axes stopped ringing.</p>
+        <p>Their laughter vanished.</p>
+        <p>Eventually...</p>
+        <p>only birds remained.</p>
+        <p>Danno let out a long breath.</p>
+        <p>"So..."</p>
+        <p>"They're gone."</p>
+        <p>"For now."</p>
+        <p>Joeby smiled.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>180</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 181 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"So we won?"</p>
+        <p>Derkik slowly shook her head.</p>
+        <p>"No."</p>
+        <p>She looked towards the western coastline.</p>
+        <p>"Their ship is still here."</p>
+        <p>Danno frowned.</p>
+        <p>"The ship?"</p>
+        <p>"The rest of the crew."</p>
+        <p>"And all their supplies."</p>
+        <p>Lewis suddenly chattered excitedly.</p>
+        <p>He pointed west.</p>
+        <p>Towards the hidden harbour.</p>
+        <p>Danno looked at him.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>181</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 182 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Then back at the pirate ship.</p>
+        <p>Something clicked.</p>
+        <p>"If all the treasure hunters have gone east..."</p>
+        <p>"...who's guarding the ship?"</p>
+        <p>Joeby looked at him.</p>
+        <p>"You can't be serious."</p>
+        <p>Danno's grin slowly appeared.</p>
+        <p>"They've left everything behind."</p>
+        <p>"Their maps."</p>
+        <p>"Their journals."</p>
+        <p>"Their supplies."</p>
+        <p>"There might even be clues."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>182</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 183 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Joeby folded his arms.</p>
+        <p>"There might also be pirates."</p>
+        <p>"There are always pirates."</p>
+        <p>"Exactly."</p>
+        <p>Derkik studied Danno carefully.</p>
+        <p>For several seconds she said nothing.</p>
+        <p>Then...</p>
+        <p>very slowly...</p>
+        <p>she smiled.</p>
+        <p>"That..."</p>
+        <p>she said,</p>
+        <p>"...is actually a very good idea."</p>
+        <p>Joeby looked horrified.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>183</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 184 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"Don't encourage him."</p>
+        <p>Lewis climbed onto Danno's shoulder and proudly thumped his tiny chest.</p>
+        <p>"I don't need two Dannos."</p>
+        <p>Everyone laughed.</p>
+        <p>For just a moment...</p>
+        <p>the fear lifted.</p>
+        <p>The island seemed to breathe again.</p>
+        <p>Far beyond the western cliffs...</p>
+        <p>the black pirate ship rocked gently on the tide.</p>
+        <p>Silent.</p>
+        <p>Waiting.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>184</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 185 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Inside its captain's cabin...</p>
+        <p>hung an old map no pirate had ever been allowed to touch.</p>
+        <p>A map that did not lead to treasure.</p>
+        <p>It led to something far more important.</p>
+        <p>But nobody knew that.</p>
+        <p>Not yet.</p>
+        <p>As the afternoon sun began to fall behind the sea, the four friends turned away from the eastern mountains.</p>
+        <p>They would leave the pirates to the Sages.</p>
+        <p>Their journey...</p>
+        <p>led west.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>185</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 186 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Towards the hidden harbour.</p>
+        <p>Towards the greatest mystery on the island.</p>
+        <p>And towards the first real clue about the legend of Captain Ruffstuff.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>186</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 187 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <h2 class="chapter-label henny-penny-regular">CHAPTER TWELVE</h2>
+        <h1 class="chapter-title">The Promise</h1>
+        <p>The pirate ship rocked gently against the tide.</p>
+        <p>From the shelter of the cliffs, it looked strangely peaceful.</p>
+        <p>Almost forgotten.</p>
+        <p>Smoke still drifted above the eastern mountains where the pirate expedition had disappeared hours earlier.</p>
+        <p>No shouting.</p>
+        <p>No axes.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>187</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 188 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>No laughter.</p>
+        <p>Only silence.</p>
+        <p>Derkik watched the distant peaks.</p>
+        <p>"The Sages have them now."</p>
+        <p>Joeby looked towards the mountains.</p>
+        <p>"What will happen to them?"</p>
+        <p>Derkik lowered her eyes.</p>
+        <p>"The island will decide."</p>
+        <p>Nobody asked another question.</p>
+        <p>Some mysteries felt too old to disturb.</p>
+        <p>Lewis tugged gently on Danno's sleeve.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>188</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 189 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The little monkey pointed towards the ship.</p>
+        <p>Danno smiled.</p>
+        <p>"I think he's impatient."</p>
+        <p>"He usually is," Derkik replied.</p>
+        <p>The tide was low enough for them to cross the rocks without being seen.</p>
+        <p>One by one they climbed aboard.</p>
+        <p>The ship creaked softly beneath their feet.</p>
+        <p>Everything had been left in a hurry.</p>
+        <p>Half-filled mugs still rested upon tables.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>189</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 190 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>A game of cards lay unfinished beside a barrel.</p>
+        <p>A lantern swung lazily from the mast.</p>
+        <p>Joeby whispered,</p>
+        <p>"I thought pirate ships would be messier."</p>
+        <p>"So did I," Danno admitted.</p>
+        <p>Lewis disappeared below deck.</p>
+        <p>Almost immediately they heard a loud crash.</p>
+        <p>Joeby sighed.</p>
+        <p>"Found him."</p>
+        <p>They hurried after the noise.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>190</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 191 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Lewis sat proudly inside the captain's cabin wearing an enormous feathered hat that kept slipping over his eyes.</p>
+        <p>Even Derkik laughed.</p>
+        <p>The cabin surprised them all.</p>
+        <p>It wasn't dark.</p>
+        <p>Or dirty.</p>
+        <p>Books filled one shelf.</p>
+        <p>Charts covered another.</p>
+        <p>A polished telescope rested neatly beside the window.</p>
+        <p>A compass lay carefully folded inside a leather case.</p>
+        <p>Everything had its place.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>191</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 192 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"This doesn't look like pirates," Joeby whispered.</p>
+        <p>"No," Danno agreed.</p>
+        <p>"It looks like someone who loves the sea."</p>
+        <p>Lewis climbed onto the desk.</p>
+        <p>He accidentally knocked several rolled charts onto the floor.</p>
+        <p>One unfurled across the wooden boards.</p>
+        <p>Danno knelt beside it.</p>
+        <p>"It isn't a treasure map."</p>
+        <p>The parchment showed Derkik Island.</p>
+        <p>Every river.</p>
+        <p>Every mountain.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>192</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 193 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Every hidden cove.</p>
+        <p>Tiny handwritten notes covered the edges.</p>
+        <p>Some paths had been crossed out.</p>
+        <p>Others carefully marked.</p>
+        <p>Joeby pointed towards the bottom corner.</p>
+        <p>"What's that say?"</p>
+        <p>Danno brushed away the dust.</p>
+        <p>Written in faded ink were only two words.</p>
+        <p>Protect Her.</p>
+        <p>Nobody spoke.</p>
+        <p>Derkik slowly knelt beside him.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>193</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 194 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>She traced the words gently with one finger.</p>
+        <p>"They knew."</p>
+        <p>"Knew what?" Danno asked.</p>
+        <p>She looked across the cabin.</p>
+        <p>"They knew what this island really is."</p>
+        <p>Lewis tugged at another rolled parchment still trapped beneath the desk.</p>
+        <p>It slipped free.</p>
+        <p>Danno picked it up.</p>
+        <p>"This one's different."</p>
+        <p>He laid it beside the first.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>194</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 195 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The edges matched perfectly.</p>
+        <p>Like two halves of the same puzzle.</p>
+        <p>Joeby gasped.</p>
+        <p>"They fit."</p>
+        <p>As the maps touched, another coastline slowly appeared beyond the edge of Derkik Island.</p>
+        <p>A second island.</p>
+        <p>Smaller.</p>
+        <p>Further out to sea.</p>
+        <p>Hidden beyond the western horizon.</p>
+        <p>For a long time, nobody moved.</p>
+        <p>Danno finally whispered,</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>195</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 196 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>"What is it?"</p>
+        <p>Derkik stared at the newly revealed island.</p>
+        <p>Her eyes filled with something Danno had never seen before.</p>
+        <p>Hope.</p>
+        <p>Sadness.</p>
+        <p>Wonder.</p>
+        <p>Very quietly she answered...</p>
+        <p>"Home."</p>
+        <p>The word echoed through the silent cabin.</p>
+        <p>Lewis climbed onto her shoulder and gently rested one tiny hand against her cheek.</p>
+        <p>Nobody spoke again.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>196</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 197 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>Together they rolled the maps closed.</p>
+        <p>They left everything else exactly as they had found it.</p>
+        <p>Some secrets...</p>
+        <p>were not theirs to take.</p>
+        <p>As the sun began to sink into the western sea, the four friends climbed back onto the cliffs above the harbour.</p>
+        <p>Below them, the pirate ship drifted quietly with the evening tide.</p>
+        <p>Far beyond the horizon...</p>
+        <p>just for a heartbeat...</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>197</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 198 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>a single black sail appeared through the mist.</p>
+        <p>Then it was gone.</p>
+        <p>Joeby watched until the sea grew dark.</p>
+        <p>"Danno..."</p>
+        <p>"Yes?"</p>
+        <p>"Do you think we'll ever get home?"</p>
+        <p>Danno looked towards Blackwater Cove.</p>
+        <p>Towards Mum.</p>
+        <p>Towards the little blue boat that had carried them into another world.</p>
+        <p>Then he looked back at Derkik Island.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>198</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 199 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The Crystal River.</p>
+        <p>The Stone Giants.</p>
+        <p>The Silver Tree.</p>
+        <p>Lewis sat happily beside them, watching the sunset.</p>
+        <p>Before Danno could answer...</p>
+        <p>Derkik smiled.</p>
+        <p>She looked first towards the sea.</p>
+        <p>Then towards the island.</p>
+        <p>Finally...</p>
+        <p>she looked at her three friends.</p>
+        <p>"Perhaps..."</p>
+        <p>she whispered,</p>
+        <p>"...we already have."</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>199</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page 200 -->
+  <div class="page page-story">
+    <div class="col-left">
+      <div class="paper-bg"></div>
+      <div class="text-overlay">
+        <p>The evening breeze carried silver leaves across the valley.</p>
+        <p>Somewhere far beyond the eastern mountains...</p>
+        <p>an ancient horn echoed one final time.</p>
+        <p>And somewhere beyond the mist...</p>
+        <p>another adventure was waiting.</p>
+        <p>Some islands cannot be found on any map.</p>
+        <p>They only appear when adventure is looking for you.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <img src="" alt="">
+      <div class="page-number">
+        <svg><use href="#page-badge"/></svg>
+        <span>200</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+
+  </footer>
+
+</body>
+</html>
