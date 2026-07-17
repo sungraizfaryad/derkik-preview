@@ -147,6 +147,89 @@
       color: #6b3f1d;
     }
 
+    /* Full-parchment pages (title, epigraph, belongs-to) — no scene image */
+    .page-parchment {
+      background-image: url("Gpt-images/cover-bg.png");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .parchment-content {
+      text-align: center;
+      padding: 0.8in 0.7in;
+      width: 100%;
+      color: #3a2510;
+    }
+
+    .parchment-content .title-main {
+      font-family: Georgia, serif;
+      font-size: 3.2em;
+      font-weight: bold;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.12in;
+    }
+
+    .parchment-content .title-sub {
+      font-family: Georgia, serif;
+      font-size: 1.3em;
+      font-style: italic;
+      margin-bottom: 0.35in;
+    }
+
+    .parchment-content .title-series {
+      font-family: Georgia, serif;
+      font-size: 0.85em;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.3in;
+    }
+
+    .parchment-content .shell-mark {
+      font-size: 1.6em;
+      opacity: 0.65;
+      display: block;
+      margin: 0.18in auto;
+    }
+
+    .parchment-content .epigraph-line {
+      font-family: Georgia, serif;
+      font-size: 1.05em;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 0.06in;
+    }
+
+    .parchment-content .epigraph-gap {
+      margin: 0.25in 0;
+    }
+
+    .parchment-content .belongs-label {
+      font-family: Georgia, serif;
+      font-size: 1.1em;
+      font-style: italic;
+      margin-bottom: 0.35in;
+    }
+
+    .parchment-content .name-line {
+      width: 70%;
+      border: none;
+      border-bottom: 1px solid #7a5533;
+      display: block;
+      margin: 0 auto 0.15in;
+      background: transparent;
+    }
+
+    .parchment-content .name-placeholder {
+      font-family: Georgia, serif;
+      font-size: 0.85em;
+      font-style: italic;
+      color: #9a7755;
+    }
+
     @media print {
       body {
         background: none;
@@ -180,6 +263,40 @@
 
   <div class="page page-cover">
     <img src="Gpt-images/cover.png?v=1784306177" alt="Cover">
+  </div>
+
+  <!-- Intro Page 1: Title page -->
+  <div class="page page-parchment">
+    <div class="parchment-content">
+      <div class="title-main">Derkik</div>
+      <div class="title-sub">The Island of Red Gold</div>
+      <div class="title-series">The First Adventure</div>
+      <span class="shell-mark">🐚</span>
+    </div>
+  </div>
+
+  <!-- Intro Page 2: Epigraph -->
+  <div class="page page-parchment">
+    <div class="parchment-content">
+      <p class="epigraph-line">Some islands cannot be found on any map.</p>
+      <p class="epigraph-line">They only appear when adventure is looking for you.</p>
+      <span class="shell-mark">🐚</span>
+      <div class="epigraph-gap"></div>
+      <p class="epigraph-line">If you ever find this island...</p>
+      <p class="epigraph-line">...be kind to it.</p>
+      <span class="shell-mark">🐚</span>
+    </div>
+  </div>
+
+  <!-- Intro Page 3: This adventure belongs to -->
+  <div class="page page-parchment">
+    <div class="parchment-content">
+      <div style="margin-bottom: 1.2in;"></div>
+      <p class="belongs-label">This adventure belongs to:</p>
+      <hr class="name-line">
+      <p class="name-placeholder">Enter name...</p>
+      <span class="shell-mark" style="margin-top: 0.4in;">🐚</span>
+    </div>
   </div>
 
   <!-- Page 1 -->
