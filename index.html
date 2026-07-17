@@ -51,24 +51,23 @@
       top: 0;
       left: 0;
       bottom: 0;
-      width: 27%;
+      width: 50%;
       z-index: 2;
     }
 
-    /* paper-bg overscans top/left/bottom by 70px so the torn-edge filter's
-       wobble only ever shows on the right (torn) side; the other three
-       sides get cropped clean by .page's overflow: hidden. The filter
-       lives here, NOT on .col-left, so the text-overlay never gets warped. */
+    /* Parchment fades to transparent at the right edge via CSS mask —
+       no SVG torn-edge filter, just a smooth gradient blend into the image. */
     .paper-bg {
       position: absolute;
-      top: -70px;
-      left: -70px;
-      bottom: -70px;
-      width: calc(100% + 70px);
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
       background-image: url("Gpt-images/cover-bg.png");
       background-size: cover;
-      background-position: center;
-      filter: url(#torn-edge) drop-shadow(2px 0 6px rgba(0, 0, 0, 0.35));
+      background-position: center left;
+      -webkit-mask-image: linear-gradient(to right, black 45%, rgba(0,0,0,0.6) 65%, transparent 88%);
+      mask-image: linear-gradient(to right, black 45%, rgba(0,0,0,0.6) 65%, transparent 88%);
     }
 
     .text-overlay {
@@ -76,7 +75,7 @@
       top: 0;
       left: 0;
       right: 0;
-      padding: 0.4in 0.2in;
+      padding: 0.4in 0.25in;
     }
 
     .henny-penny-regular {
@@ -104,14 +103,13 @@
       font-size: 1.0em;
     }
 
-    /* left edge extends further under .col-left than the visible split so the
-       torn notches reveal this image, not the page's white background */
+    /* Full-bleed image — covers the entire page behind the fading parchment */
     .col-right {
       position: absolute;
       top: 0;
-      right: 0;
+      left: 0;
       bottom: 0;
-      width: calc(73% + 60px);
+      width: 100%;
       z-index: 1;
     }
 
@@ -170,10 +168,6 @@
 
   <svg width="0" height="0" style="position: absolute">
     <defs>
-      <filter id="torn-edge" x="-30%" y="-30%" width="160%" height="160%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.006 0.018" numOctaves="4" seed="7" result="noise" />
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" xChannelSelector="R" yChannelSelector="G" />
-      </filter>
       <symbol id="page-badge" viewBox="0 0 100 100">
         <polygon fill="#ffb703" stroke="#fff" stroke-width="2" points="50.0,2.0 59.8,13.3 74.0,8.4 76.9,23.1 91.6,26.0 86.7,40.2 98.0,50.0 86.7,59.8 91.6,74.0 76.9,76.9 74.0,91.6 59.8,86.7 50.0,98.0 40.2,86.7 26.0,91.6 23.1,76.9 8.4,74.0 13.3,59.8 2.0,50.0 13.3,40.2 8.4,26.0 23.1,23.1 26.0,8.4 40.2,13.3" />
       </symbol>
