@@ -67,16 +67,18 @@
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      -webkit-mask-image: linear-gradient(to right, black 45%, rgba(0,0,0,0.6) 65%, transparent 88%);
-      mask-image: linear-gradient(to right, black 45%, rgba(0,0,0,0.6) 65%, transparent 88%);
+      -webkit-mask-image: linear-gradient(to right, black 60%, rgba(0,0,0,0.7) 78%, transparent 96%);
+      mask-image: linear-gradient(to right, black 60%, rgba(0,0,0,0.7) 78%, transparent 96%);
     }
 
+    /* Text stays inside the opaque parchment zone — never bleeds into the
+       faded area where the image shows through. */
     .text-overlay {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      padding: 0.4in 0.25in;
+      right: 22%;
+      padding: 0.4in 0.1in 0.4in 0.25in;
     }
 
     .henny-penny-regular {
@@ -91,8 +93,11 @@
     }
 
     .chapter-title {
-      font-family: 'Kablammo', cursive;
-      font-size: 1.8em;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 2em;
+      color: #3a2510;
       margin-bottom: 0.2in;
       text-align: center;
     }
